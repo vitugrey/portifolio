@@ -2,7 +2,7 @@
 
 ![Imagem do projeto finalizado](assets/images/projects/portifolio.png)
 
-<h4 align="center"><a href="https://lucyanovidio.vercel.app">Confira o projeto aqui</a></h4>
+<h4 align="center"><a href="https://staging.d1eaxlwkui9mlf.amplifyapp.com/">Confira o projeto aqui</a></h4>
 
 ---
 
