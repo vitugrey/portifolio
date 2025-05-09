@@ -208,12 +208,7 @@ body nav#navigation .social-links li:nth-child(2) svg:hover path:nth-child(2) {
 }
 
 body.light-mode .social-links li:nth-child(2) svg:hover path:nth-child(2),
-body.light-mode
-  nav#navigation
-  .social-links
-  li:nth-child(2)
-  svg:hover
-  path:nth-child(2) {
+body.light-mode nav#navigation .social-links li:nth-child(2) svg:hover path:nth-child(2) {
   fill: #000;
 }
 
@@ -455,6 +450,7 @@ body.menu-expanded button path {
   from {
     width: 0;
   }
+
   to {
     width: 27.5rem;
   }
@@ -464,6 +460,7 @@ body.menu-expanded button path {
   from {
     border-right-color: var(--primary-color);
   }
+
   to {
     border-right-color: transparent;
   }
@@ -487,9 +484,11 @@ body.menu-expanded button path {
   0% {
     transform: translateY(2rem);
   }
+
   50% {
     transform: translateY(-2rem);
   }
+
   100% {
     transform: translateY(2rem);
   }
@@ -520,39 +519,23 @@ body.menu-expanded button path {
   filter: contrast(1.2);
 }
 
-#home img#notebook-2-white,
-body.light-mode #home img#notebook-1,
-body.light-mode #home img#notebook-2 {
-  visibility: hidden;
-  opacity: 0;
-  animation: none;
-}
 
-#home img#notebook-1 {
+#home img#robo-1 {
   animation: appear 1s 1s backwards;
 }
 
-#home img#notebook-2-white {
-  position: absolute;
-}
 
-body.light-mode #home img#notebook-2-white {
-  position: absolute;
-  visibility: visible;
-  opacity: 1;
-}
-
-#home img#notebook-2 {
+#home img#robo-2 {
   position: absolute;
   z-index: 90;
   animation: appear 1s 2s backwards;
 }
 
-#home img#vidro {
+#home img#incones {
   position: absolute;
   z-index: 100;
   right: -2rem;
-  animation: appear-vidro 1s 2.3s backwards;
+  animation: appear-incones 1s 2.3s backwards;
 
   filter: contrast(5);
 }
@@ -561,16 +544,18 @@ body.light-mode #home img#notebook-2-white {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
 
-@keyframes appear-vidro {
+@keyframes appear-incones {
   from {
     right: -4rem;
     opacity: 0;
   }
+
   to {
     right: -2rem;
     opacity: 1;
@@ -636,7 +621,7 @@ body.light-mode #home img#notebook-2-white {
   font-style: italic;
 }
 
-#projects header p + a {
+#projects header p+a {
   padding: 0.8rem 2rem;
   color: var(--paragraph);
 
@@ -697,7 +682,7 @@ body.light-mode #home img#notebook-2-white {
   transition: 300ms;
 }
 
-#projects .card:hover > .img-wrapper img {
+#projects .card:hover>.img-wrapper img {
   filter: opacity(0.5);
 }
 
@@ -718,7 +703,7 @@ body.light-mode #home img#notebook-2-white {
   transition: 400ms;
 }
 
-#projects .card:hover > .img-wrapper .buttons {
+#projects .card:hover>.img-wrapper .buttons {
   visibility: visible;
   opacity: 1;
 }
@@ -756,7 +741,7 @@ body.light-mode #home img#notebook-2-white {
   cursor: pointer;
 }
 
-#projects .card .buttons a:hover > svg {
+#projects .card .buttons a:hover>svg {
   fill: #fff;
 }
 
@@ -956,80 +941,6 @@ footer .social-links li:nth-child(4) svg path:nth-child(2) {
   fill: var(--paragraph-2);
 }
 
-/*===== SWITCH MODE TOGGLE =====================================*/
-
-#toggle {
-  display: flex;
-
-  position: fixed;
-  bottom: 2rem;
-  left: 2.5rem;
-}
-
-#toggle input {
-  position: absolute;
-  visibility: hidden;
-}
-
-#toggle label {
-  width: 8rem;
-  height: 4rem;
-
-  background-color: var(--secundary-color);
-  border: 0.1rem solid var(--primary-color);
-  border-radius: 5rem;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-
-#toggle label:hover {
-  cursor: pointer;
-}
-
-#toggle label::before {
-  content: "";
-  display: block;
-
-  width: 3rem;
-  height: 3rem;
-
-  background-color: var(--primary-color);
-  border-radius: 50%;
-
-  position: absolute;
-  bottom: 0.5rem;
-  left: 0.6rem;
-  transform: translateX(0);
-
-  transition: 500ms;
-}
-
-#toggle input:checked + label::before {
-  transform: translateX(3.8rem);
-}
-
-/*===== BACK TO TOP BUTTON =====================================*/
-
-#backToTopButton {
-  position: fixed;
-  bottom: 1.5rem;
-  right: 2.5rem;
-
-  opacity: 0;
-  visibility: hidden;
-
-  transition: 200ms;
-  transform: translateY(100%);
-}
-
-#backToTopButton.show {
-  opacity: 1;
-  visibility: visible;
-
-  transform: translateY(0);
-}
 
 /*===== RESPONSIVO (DESKTOP) ====================================*/
 
@@ -1218,27 +1129,15 @@ footer .social-links li:nth-child(4) svg path:nth-child(2) {
     stroke: #ff377a;
   }
 
-  nav#navigation.scroll
-    .social-links
-    li:nth-child(2)
-    svg:hover
-    path:nth-child(2) {
+  nav#navigation.scroll .social-links li:nth-child(2) svg:hover path:nth-child(2) {
     fill: #fff;
   }
 
-  nav#navigation.scroll
-    .social-links
-    li:nth-child(3)
-    svg:hover
-    path:nth-child(2) {
+  nav#navigation.scroll .social-links li:nth-child(3) svg:hover path:nth-child(2) {
     fill: #0a66c2;
   }
 
-  nav#navigation.scroll
-    .social-links
-    li:nth-child(4)
-    svg:hover
-    path:nth-child(2) {
+  nav#navigation.scroll .social-links li:nth-child(4) svg:hover path:nth-child(2) {
     fill: #00abf0;
   }
 
@@ -1289,6 +1188,7 @@ footer .social-links li:nth-child(4) svg path:nth-child(2) {
     from {
       width: 0;
     }
+
     to {
       width: 38rem;
     }
@@ -1468,6 +1368,7 @@ footer .social-links li:nth-child(4) svg path:nth-child(2) {
     from {
       width: 0;
     }
+
     to {
       width: 23.5rem;
     }
@@ -1560,6 +1461,7 @@ footer .social-links li:nth-child(4) svg path:nth-child(2) {
     from {
       width: 0;
     }
+
     to {
       width: 18rem;
     }

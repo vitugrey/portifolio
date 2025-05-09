@@ -4,7 +4,6 @@ import { projetos } from "./projetos.js";
 const navigation = document.querySelector("#navigation");
 const backToTopButton = document.querySelector("#backToTopButton");
 const toggle = document.querySelector("#sw-checkbox");
-const projectsSection = document.querySelector("#projects .wrapper");
 
 const notebook_1 = document.querySelector("#notebook-1");
 const notebook_2 = document.querySelector("#notebook-2");
