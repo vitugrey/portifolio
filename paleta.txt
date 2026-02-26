@@ -1,0 +1,10 @@
+Azul = #010D26
+Azul = #D1DCF8
+Azul = #B2CAFF
+Azul = #586EA6
+Azul = #2D437B
+Azul = #102251
+
+Amarelo = #F2AA52
+Amarelo = #f2ffb1
+

@@ -1,39 +1,60 @@
-<h1 align="center">Portifólio - Lucyan 💻</h1>
+# Portfólio de Vitor Grey 💻
 
-![Imagem do projeto finalizado](assets/images/projects/portifolio.png)
+![Captura de tela](assets/images/projects/portifolio.png)
 
-<h4 align="center"><a href="https://staging.d1eaxlwkui9mlf.amplifyapp.com/">Confira o projeto aqui</a></h4>
+<p align="center">
+  <a href="https://staging.d1eaxlwkui9mlf.amplifyapp.com/" target="_blank">🔗 Visualizar projeto online</a>
+</p>
+
+---
+
+## 📝 Descrição
+
+Este é o site de portfólio pessoal de **Vitor Grey**, elaborado em HTML, CSS e um pouco de JavaScript. A ideia é apresentar meu perfil profissional, conhecimentos, trabalhos e formas de contato de maneira simples, leve e responsiva.
+
+## 🚀 Funcionalidades principais
+
+- Layout responsivo (desktop e mobile)
+- Seções informativas: "Sobre mim", "Conhecimentos", "Projetos" e "Fale comigo";
+- Navegação fixa com links de âncora;
+- Rodapé com mensagem e contatos sociais;
+- Animações sutis e uso de fontes customizadas;
+- Perfil e imagem profissional em destaque.
+
+## 🛠 Tecnologias utilizadas
+
+- **HTML5** para estruturação;
+- **CSS3** para estilo, incluindo media queries para responsividade;
+- **JavaScript** básico para interatividade (menu mobile, animações, etc.).
+
+> Todo o código é frontend e está contido nesta pasta, sem frameworks.
+
 
 ---
 
-## 💻 Sobre
-
-Projeto feito no intuito de me apresentar, como Engenheiro de Inteligência Artificial.
-
-## 🤯 O site é composto por:
-
-- **Home:** Minha apresentação;
-- **Sobre mim:** Falo um pouco sobre minha trajetória e meu estado atual;
-- **Projetos:** Alguns projetos recentes que fiz;
-- **Conhecimentos:** As tecnologias que tenho conhecimento;
-- **Fale comigo:** Área com meios para contato comigo;
-- **Redes:** Minhas redes sociais disponíveis no menu de navegação e no rodapé do site.
-
-
-
----
+#### 💬 Comentario dos Devs
 
 <table>
   <tr>
     <td>
-      <img src="assets\images\image-de-vitor-de-oculos-com-fundo-verde.jpeg" width="100px" />
+      <img src="./assets/images/minha-foto.png" width="100px" />
     </td>
     <td>
-      Feito por <a href="https://github.com/lvitorgrey">Vitor Grey.</a> 🙋🏿‍♂️
+      Escrito por <a href="https://github.com/vitugrey">Vitor Grey.</a>
+    </td>
+    <td>
+      <i>Tomei vergonha e codei um frontend para apresentar meus projetos</i>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="./assets/images/imagem-real-da-kallia.ico" width="100px" />
+    </td>
+    <td>
+      Feito por <a href="#">Kallia 2.0.</a>
+    </td>
+    <td>
+      <i>Ai ai.</i>
     </td>
   </tr>
 </table>
-
-## 🏆 Licença
-
-The [MIT License](./LICENSE).
