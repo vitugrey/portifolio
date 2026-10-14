@@ -4,138 +4,700 @@
 <head>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inconsolata:wght@400;600;700;900&display=swap"
+    rel="stylesheet" />
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="author" content="Vitor Grey" />
-  <meta name="description" content="Portifólio de Vitor Grey, Profissional de TI" />
-  <meta property="og:description" content="Portifólio de Vitor Grey, Profissional de TI" />
-  <meta property="og:image" content="./assets/images/image-de-vitor-de-oculos-com-fundo-verde.jpeg" />
+  <meta name="description" content="Vitor Grey - Automação, análise de dados e soluções sob medida para pessoas e microempresas descobrirem para onde o dinheiro está indo." />
+  <meta property="og:title" content="Vitor Grey | Automação e Análise de Dados" />
+  <meta property="og:description" content="Automação, análise de dados e soluções sob medida para pessoas e microempresas terem clareza financeira e processos 24/7." />
+  <meta property="og:image" content="./assets/images/projects/portifolio.png" />
+  <meta property="og:url" content="https://vitor-grey.vercel.app/" />
   <meta property="og:type" content="website" />
   <meta name="keywords"
-    content="programador, programação, dev, desenvolvedor, python, backend, data science, machine learning, inteligência artificial, deep learning, AI, IA" />
+    content="programador, programação, dev, desenvolvedor, python, backend, data science, machine learning, inteligência artificial, automação, microempresas, planilhas" />
   <meta name="robots" content="index" />
 
-  <link rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-icon" />
+  <link rel="icon" href="./assets/images/logo-vg.svg" type="image/svg+xml" />
+  <link rel="alternate icon" href="./assets/images/favicon.png" type="image/png" />
   <link rel="stylesheet" href="./assets/css/style.css" />
-  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="https://unpkg.com/scrollreveal" defer></script>
   <script type="module" src="./assets/js/main.js" defer></script>
 
-  <title>Vitor Grey | Portifólio</title>
+  <title>Vitor Grey | Automação e Análise de Dados para Você e Seu Negócio</title>
 </head>
 
 <body>
-  <header>
+  <!-- Gradiente compartilhado pelas logos VG -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="vgGold" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#FFE29F" />
+        <stop offset="1" stop-color="#F2AA52" />
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <!-- Background interativo com Grid e Spotlight que segue o mouse -->
+  <div class="spotlight-bg" id="spotlightBg" aria-hidden="true">
+    <div class="grid-layer"></div>
+    <div class="stars-layer"></div>
+    <div class="glow-orb" id="glowOrb"></div>
+  </div>
+
+  <header id="siteHeader">
     <nav id="navigation">
-      <a class="logo" href="#"> Vitor Grey </a>
-      <ul class="menu">
-        <li><a href="#aboutme">Sobre mim</a></li>
-        <li><a href="#knowledge">Conhecimentos</a></li>
+      <a class="logo" href="#" aria-label="Vitor Grey - início">
+        <svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true">
+          <path class="vg-g" d="M 35 13 A 15 15 0 1 0 38 31 V 24 H 22" />
+          <path class="vg-v" d="M 15 13 L 23 35 L 31 13" />
+        </svg>
+        <span class="logo-name">Vitor Grey</span>
+      </a>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menu de navegação" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="menu" id="navMenu">
+        <li><a href="#dashboard-demo">Demonstração</a></li>
+        <li><a href="#solutions">O que eu resolvo</a></li>
         <li><a href="#projects">Projetos</a></li>
-        <li><a href="#contact">Fale comigo</a></li>
+        <li><a href="#contact" class="nav-cta">Fale comigo</a></li>
       </ul>
     </nav>
   </header>
   <main>
-    <section id="aboutme">
-      <div id="container-info">
-        <p>Hello World</p>
-        <h1>Vitor Grey</h1>
-        <h2>Profissional de TI</h2>
-        <h3>Profissional de TI autonomo e estudante de ciência da computação, em constante aprendizado e
-          buscando sempre melhorar.</h3>
+    <!-- HERO / HOOK -->
+    <section id="hook">
+      <div class="hook-content">
+        <span class="hook-eyebrow">Análise de dados &amp; automação para você ou seu negócio</span>
+        <h1>
+          Cansado de fechar o mês sem saber para onde o dinheiro foi?
+          <span class="highlight-gold">Seus números já sabem a resposta.</span>
+        </h1>
+        <p class="hook-sub">
+          Conecto suas planilhas, vendas e rotinas a um painel simples e intuitivo, mostrando para onde o
+          dinheiro está indo e ajudando pessoas e microempresas a terem clareza e previsibilidade com Machine Learning.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn-secondary" id="hookCtaProjects">
+            <span>Em que posso te ajudar?</span>
+          </a>
+          <a href="https://wa.me/5521999677281?text=Ol%C3%A1%20Vitor!%20Gostaria%20de%20descobrir%20onde%20estou%20perdendo%20dinheiro%20e%20conhecer%20suas%20solu%C3%A7%C3%B5es." target="_blank" rel="noopener noreferrer" class="btn-primary" id="hookCtaWhatsapp">
+            <span>Quero descobrir onde perco dinheiro</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+        <div class="hero-features">
+          <span class="feature-item">✓ Usa as planilhas que você já tem</span>
+          <span class="feature-item">✓ Painel acessível pelo celular</span>
+          <span class="feature-item">✓ Previsões com Machine Learning</span>
+        </div>
       </div>
-      <div id="container-avatar">
-        <img src="./assets/images/minha-foto.png" alt="Vitor Grey - Foto Profissional"
-          class="avatar">
+
+      <!-- SHOWCASE DO SISTEMA: PAINEL DESKTOP + MINI VERSÃO MOBILE INTERATIVA -->
+      <div class="demo-showcase" id="dashboard-demo">
+        <div class="dash-window">
+          <div class="window-header">
+            <div class="window-dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <span class="window-url">painel.vitorgrey.dev/demonstracao</span>
+            <span class="dash-tag">● Simulação Interativa</span>
+          </div>
+
+          <div class="st-app">
+            <aside class="st-sidebar">
+              <p class="st-side-title">Filtros &amp; Simulação</p>
+              
+              <label class="st-label" for="simScenario">Cenário de Análise</label>
+              <div class="st-select-wrapper">
+                <select id="simScenario" class="st-real-select">
+                  <option value="geral">Visão Geral (Atual)</option>
+                  <option value="otimizado">Cortar Desperdícios (-15%)</option>
+                  <option value="crescimento">Expansão de Vendas (+25%)</option>
+                </select>
+              </div>
+
+              <label class="st-label" for="simForecast">Meses de previsão (ML)</label>
+              <div class="st-slider-control">
+                <input type="range" id="simForecast" min="1" max="6" value="3" class="slider-input">
+                <span class="slider-display" id="simForecastVal">3 meses</span>
+              </div>
+
+              <label class="st-label">Notificações automáticas</label>
+              <button type="button" class="btn-demo-action" id="btnDispararAlerta">
+                ⚡ Testar envio no WhatsApp
+              </button>
+              
+              <div class="sidebar-help">
+                <small>💡 Alterne o cenário acima para ver os números e gráficos reagindo em tempo real.</small>
+              </div>
+            </aside>
+
+            <div class="st-main">
+              <div class="st-main-header">
+                <div>
+                  <h2 class="st-title">📊 Painel de Controle Financeiro &amp; Operação</h2>
+                  <p class="st-caption">Atualizado automaticamente a partir de planilhas e rotinas de atendimento</p>
+                </div>
+                <span class="live-pill" id="livePill">● Dados em tempo real</span>
+              </div>
+
+              <div class="st-metrics">
+                <div class="st-metric">
+                  <span class="m-label">Faturamento Mensal</span>
+                  <span class="m-value" id="valFaturamento">R$ 184.320</span>
+                  <span class="m-delta up-good" id="deltaFaturamento">↑ 4,7% vs. mês ant.</span>
+                </div>
+                <div class="st-metric">
+                  <span class="m-label">Despesas Operacionais</span>
+                  <span class="m-value" id="valDespesas">R$ 171.950</span>
+                  <span class="m-delta up-bad" id="deltaDespesas">↑ 5,5% vs. mês ant.</span>
+                </div>
+                <div class="st-metric is-profit-highlight">
+                  <span class="m-label">Lucro Líquido do Mês</span>
+                  <span class="m-value profit-positive" id="valLucro">+R$ 12.370</span>
+                  <span class="m-delta up-good" id="deltaLucro">✓ Saldo positivo no mês</span>
+                </div>
+                <div class="st-metric is-profit-highlight">
+                  <span class="m-delta up-good" id="deltaMargem">↑ Margem preservada</span>
+                </div>
+              </div>
+
+              <!-- GRÁFICO E FLUXO DE CAIXA EM CIMA DAS NOTIFICAÇÕES -->
+              <div class="st-grid">
+                <div class="st-card">
+                  <p class="st-card-title">Fluxo de Caixa &amp; Projeção com Machine Learning</p>
+                  <svg class="st-chart" viewBox="0 0 400 190" role="img" aria-label="Gráfico interativo de faturamento e despesas">
+                    <rect class="forecast-zone" x="277" y="20" width="113" height="150" />
+                    <text class="forecast-label" x="333" y="34">previsão IA</text>
+                    <line class="grid-l" x1="20" y1="60" x2="390" y2="60" />
+                    <line class="grid-l" x1="20" y1="100" x2="390" y2="100" />
+                    <line class="grid-l" x1="20" y1="140" x2="390" y2="140" />
+                    <path id="chartArea" class="area-rev" d="M20 106 L71 93 L123 87 L174 74 L226 63 L277 52 L277 170 L20 170 Z" />
+                    <path id="chartLineRev" class="line line-rev" d="M20 106 L71 93 L123 87 L174 74 L226 63 L277 52" />
+                    <path id="chartLineExp" class="line line-exp" d="M20 141 L71 130 L123 112 L174 98 L226 85 L277 71" />
+                    <path id="chartLineRevFc" class="line-fc line-rev-fc" d="M277 52 L329 45 L380 40" />
+                    <path id="chartLineExpFc" class="line-fc line-exp-fc" d="M277 71 L329 60 L380 50" />
+                    <circle id="ptRev" class="pt-rev" cx="277" cy="52" r="4" />
+                    <circle id="ptExp" class="pt-exp" cx="277" cy="71" r="4" />
+                    <g class="axis-x">
+                      <text x="20" y="186">Jan</text><text x="71" y="186">Fev</text><text x="123" y="186">Mar</text>
+                      <text x="174" y="186">Abr</text><text x="226" y="186">Mai</text><text x="277" y="186">Jun</text>
+                      <text x="329" y="186">Jul</text><text x="380" y="186">Ago</text>
+                    </g>
+                  </svg>
+                  <div class="st-legend">
+                    <span><i class="lg-rev"></i>Entradas</span>
+                    <span><i class="lg-exp"></i>Saídas</span>
+                    <span><i class="lg-fc"></i>Projeção Inteligente</span>
+                  </div>
+                </div>
+
+                <div class="st-card">
+                  <p class="st-card-title">Onde o dinheiro está escorrendo</p>
+                  <ul class="st-bars">
+                    <li><span class="b-name">Fornecedores</span><span class="b-track"><span id="bar1" class="b-fill" style="--w:100%"></span></span><span class="b-val" id="valBar1">68,4k</span></li>
+                    <li><span class="b-name">Folha / Pessoal</span><span class="b-track"><span id="bar2" class="b-fill" style="--w:76%"></span></span><span class="b-val" id="valBar2">52,1k</span></li>
+                    <li><span class="b-name">Frete &amp; Envio</span><span class="b-track"><span id="bar3" class="b-fill" style="--w:28%"></span></span><span class="b-val" id="valBar3">18,9k</span></li>
+                    <li class="is-alert"><span class="b-name">Taxas de Cartão</span><span class="b-track"><span id="bar4" class="b-fill" style="--w:21%"></span></span><span class="b-val" id="valBar4">14,7k</span></li>
+                    <li><span class="b-name">Anúncios / Ads</span><span class="b-track"><span id="bar5" class="b-fill" style="--w:14%"></span></span><span class="b-val" id="valBar5">9,6k</span></li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- NOTIFICAÇÕES & ALERTAS DO GERENTE (FORMATO DISCRETO E EXECUTIVO) -->
+              <div class="manager-alerts-discreet" id="managerAlerts">
+                <div class="discreet-header">
+                  <div class="discreet-title-wrap">
+                    <span class="discreet-dot"></span>
+                    <span class="discreet-title">Painel de Alertas Operacionais</span>
+                    <span class="discreet-sub">• Detecção inteligente de desvios e outliers</span>
+                  </div>
+                  <span class="discreet-badge" id="alertsCount">3 anomalias</span>
+                </div>
+
+                <div class="discreet-list" id="alertsItemsGrid">
+                  <div class="discreet-item is-outlier">
+                    <div class="discreet-item-left">
+                      <span class="discreet-pill outlier">Outlier</span>
+                      <span class="discreet-msg"><strong>Taxas de Cartão:</strong> +32% acima da média histórica (-R$ 3.600 no mês).</span>
+                    </div>
+                    <span class="discreet-tip">💡 Sugestão IA: Renegociar taxa ou trocar de maquininha</span>
+                  </div>
+
+                  <div class="discreet-item is-budget">
+                    <div class="discreet-item-left">
+                      <span class="discreet-pill budget">Orçamento</span>
+                      <span class="discreet-msg"><strong>Frete em 92% da cota:</strong> Restam 10 dias de operação no mês.</span>
+                    </div>
+                    <span class="discreet-tip">💡 Ação: Consolidar remessas com fornecedores</span>
+                  </div>
+
+                  <div class="discreet-item is-opportunity">
+                    <div class="discreet-item-left">
+                      <span class="discreet-pill success">Oportunidade</span>
+                      <span class="discreet-msg"><strong>Pico de Vendas Terça:</strong> +18% via agendamentos no WhatsApp.</span>
+                    </div>
+                    <span class="discreet-tip">💡 Ação: Manter atendimento automático ativo</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="st-alert st-warning" id="alertBox">
+                💡 <strong>Resumo do Gerente:</strong> Negócio lucrativo no mês (+R$ 12.370), porém com potencial de reter mais <strong>R$ 26.150/mês</strong> se os outliers de taxas e fretes forem corrigidos.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MINI VERSÃO MOBILE ELEGANTE E REALISTA -->
+        <div class="phone-mockup" id="phoneMockup">
+          <div class="phone-notch">
+            <span class="camera-lens"></span>
+            <span class="speaker-grill"></span>
+          </div>
+          <div class="phone-screen">
+            <!-- Barra de Status do Sistema Operacional -->
+            <div class="phone-status-bar">
+              <span class="phone-time">09:41</span>
+              <div class="phone-status-icons">
+                <span>5G</span>
+                <span>📶</span>
+                <span>100%</span>
+              </div>
+            </div>
+
+            <!-- Cabeçalho do App -->
+            <div class="phone-app-bar">
+              <div class="phone-user-info">
+                <span class="user-avatar-mini">VG</span>
+                <div>
+                  <p class="greeting">Gestão Executiva</p>
+                  <p class="company-name">Minha Operação</p>
+                </div>
+              </div>
+              <span class="phone-sync-pill" title="Atualizado via Nuvem">● Online</span>
+            </div>
+
+            <div class="phone-body">
+              <!-- Cartão de Saldo Líquido -->
+              <div class="phone-balance-card">
+                <div class="balance-header">
+                  <span>Lucro Real Estimado</span>
+                  <span class="month-pill">Mês Atual</span>
+                </div>
+                <h4 id="phoneSaldo">+R$ 12.370,00</h4>
+                <div class="balance-footer">
+                  <span class="status-indicator-tag" id="phoneStatusTag">● Lucro Preservado</span>
+                  <span class="growth-text">↑ Margem 6,7%</span>
+                </div>
+              </div>
+
+              <!-- Atalhos Rápidos da Operação -->
+              <div class="phone-quick-actions">
+                <div class="quick-chip active">📊 Resumo</div>
+                <div class="quick-chip">📑 Extrato</div>
+                <div class="quick-chip">🔔 Alertas (2)</div>
+              </div>
+
+              <!-- Notificação em Tempo Real no Celular -->
+              <div class="phone-card-alert" id="phoneNotifCard">
+                <div class="alert-icon-circle">⚡</div>
+                <div class="alert-content-mini">
+                  <strong id="phoneNotifTitle">Alerta de Taxas de Cartão</strong>
+                  <p id="phoneNotifText">Desvio de +32% detectado em relação ao mês anterior.</p>
+                </div>
+              </div>
+
+              <!-- Checklist de Fechamento -->
+              <div class="phone-tasks-box">
+                <span class="tasks-title">Rotinas Automáticas</span>
+                <div class="task-row">
+                  <span class="task-check-circle done">✓</span>
+                  <span class="task-desc">Relatório diário enviado no WhatsApp</span>
+                </div>
+                <div class="task-row">
+                  <span class="task-check-circle">⏳</span>
+                  <span class="task-desc">Renegociação de maquininha pendente</span>
+                </div>
+              </div>
+
+              <!-- Botão Interativo no Celular -->
+              <button type="button" class="phone-cta-btn" id="btnSimularResolvido">
+                ⚡ Otimizar &amp; Reter Lucro
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="knowledge">
-      <h1 class="titulo">Conhecimentos</h1>
-      <div id="container-knowledge">
-        <div class="card">
-          <img src="./assets/images/HARDWARE-B.png" alt="HARDWARE" class="normal">
-          <img src="./assets/images/HARDWARE.png" alt="HARDWARE" class="hover">
-          <h1>HARDWARE</h1>
+    <!-- ONDE POSSO TE AJUDAR / SERVIÇOS -->
+    <section id="solutions">
+      <h2 class="titulo">Onde Posso Te Ajudar?</h2>
+      <p class="section-subtitle">Soluções sob medida para automatizar tarefas repetitivas, prever resultados e acelerar seu negócio.</p>
+      
+      <div id="container-solutions">
+        <!-- Card Esquerda: Agentes Autônomos -->
+        <div class="solution-card">
+          <div class="solution-icon">🤖</div>
+          <h3>Agentes Autônomos &amp; Automação de Rotinas</h3>
+          <p>Criação de agentes inteligentes com IA para gerenciar e automatizar os sistemas e a rotina da sua empresa: atendimento ao cliente, cobrança, emissão de relatórios e triagem sem intervenção humana.</p>
+          <ul class="solution-perks">
+            <li><span class="perk-check">✓</span><span>Sistemas trabalhando 24/7 de forma independente</span></li>
+            <li><span class="perk-check">✓</span><span>Integração direta com WhatsApp, CRM e planilhas</span></li>
+            <li><span class="perk-check">✓</span><span>Eliminação de tarefas manuais e retrabalho diário</span></li>
+            <li><span class="perk-check">✓</span><span>Notificações automáticas para gestor e equipe</span></li>
+          </ul>
         </div>
-        <div class="card">
-          <img src="./assets/images/PYTHON-B.png" alt="PYTHON" class="normal">
-          <img src="./assets/images/PYTHON.png" alt="PYTHON" class="hover">
-          <h1>PYTHON</h1>
+
+        <!-- Card Centro (Destaque): Previsão e Controle por ML -->
+        <div class="solution-card featured">
+          <div class="popular-tag">Mais Procurado</div>
+          <div class="solution-icon">📈</div>
+          <h3>Previsão &amp; Controle da Empresa por ML</h3>
+          <p>Descubra onde o dinheiro está escorrendo antes do fim do mês. Modelos de Machine Learning conectados às suas vendas e despesas para projetar caixa, antecipar riscos e apontar decisões lucrativas.</p>
+          <ul class="solution-perks">
+            <li><span class="perk-check">✓</span><span>Projeção preditiva de faturamento e fluxo de caixa</span></li>
+            <li><span class="perk-check">✓</span><span>Identificação de taxas ocultas e custos atípicos</span></li>
+            <li><span class="perk-check">✓</span><span>Alertas de desvios e outliers antes de prejuízo</span></li>
+            <li><span class="perk-check">✓</span><span>Painel executivo acessível no computador e celular</span></li>
+          </ul>
         </div>
-        <div class="card">
-          <img src="./assets/images/DP-B.png" alt="DEEP LEARNING" class="normal">
-          <img src="./assets/images/DP.png" alt="DEEP LEARNING" class="hover">
-          <h1>DEEP LEARNING</h1>
-        </div>
-        <div class="card">
-          <img src="./assets/images/DOCKER-B.png" alt="DOCKER" class="normal">
-          <img src="./assets/images/DOCKER.png" alt="DOCKER" class="hover">
-          <h1>DOCKER</h1>
+
+        <!-- Card Direita: Automação de Conteúdo em Geral -->
+        <div class="solution-card">
+          <div class="solution-icon">✨</div>
+          <h3>Automação de Conteúdo &amp; Comunicação</h3>
+          <p>Esteira completa para produzir e disparar conteúdos sem perder horas na frente da tela: newsletters semanais, roteiros para vídeos/redes, e-mails comerciais com design elegante e scripts de trabalho otimizados.</p>
+          <ul class="solution-perks">
+            <li><span class="perk-check">✓</span><span>Newsletters automáticas com curadoria e diagramação moderna</span></li>
+            <li><span class="perk-check">✓</span><span>Roteiros estruturados prontos para gravação e postagem</span></li>
+            <li><span class="perk-check">✓</span><span>E-mails com design atrativo para clientes e leads</span></li>
+            <li><span class="perk-check">✓</span><span>Scripts e fluxos para acelerar seu fluxo de trabalho</span></li>
+          </ul>
         </div>
       </div>
     </section>
 
     <section id="projects">
-      <h1 class="titulo">Meus Projetos</h1>
+      <h2 class="titulo">Soluções Desenvolvidas</h2>
+      <p class="section-subtitle">Exemplos reais de ferramentas construídas sob medida para resolver gargalos de operação e atendimento.</p>
+      
       <div id="container-projects">
-        <div class="card">
-          <h1>Projeto Chatbot com AI</h1>
-          <img src="./assets/images/projects/chatbot.png" style="background-color: #43fef6;" height="100%"
-            width="100%"></img>
-          <div class="botoes">
-            <button class="botao-tela-cheia">VER PROJETO EM TELA CHEIA</button>
-            <a href="#" target="_blank">
-              <button>IR PARA O REPOSITORIO</button>
-            </a>
+        
+        <!-- Projeto 1: Chatbot IA -->
+        <div class="card project-card">
+          <div class="window-header">
+            <div class="window-dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <span class="window-url">chatbot.vitorgrey.dev</span>
+          </div>
+          <div class="project-content">
+            <div class="project-header">
+              <span class="project-badge">Atendimento 24/7</span>
+              <h3>Agente Virtual Inteligente &amp; Triagem</h3>
+            </div>
+            <div class="img-container">
+              <img src="./assets/images/projects/chatbot.png" alt="Chatbot com Inteligência Artificial" class="project-img">
+            </div>
+            <p class="project-desc">Sistema automatizado de atendimento ao cliente com IA contextual: responde dúvidas, qualifica pedidos e envia notificações automáticas sem intervenção manual.</p>
+            <div class="tech-tags">
+              <span>Python</span>
+              <span>OpenAI API</span>
+              <span>Streamlit</span>
+              <span>Webhooks WhatsApp</span>
+            </div>
+            <div class="botoes">
+              <button class="botao-tela-cheia" 
+                data-img="./assets/images/projects/chatbot.png" 
+                data-title="Agente Virtual Inteligente &amp; Triagem"
+                data-desc="Desenvolvido para atender clientes instantaneamente a qualquer hora do dia ou da noite. O sistema consome documentos ou catálogo da empresa, responde em linguagem natural, filtra leads frios e avisa o responsável imediatamente com um resumo do cliente."
+                data-highlights="IA Generativa sob medida|Disponibilidade 24 horas por dia|Redução de até 80% no tempo de resposta inicial|Integração direta com WhatsApp e CRM"
+                data-tech="Python, FastAPI, OpenAI GPT-4o, Streamlit, PostgreSQL">
+                🔍 VER DETALHES TÉCNICOS &amp; TELAS
+              </button>
+            </div>
           </div>
         </div>
-        <div class="card">
-          <h1>Projeto RESERVADO</h1>
-          <img src="./assets/images/projects/RESERVADO.png" style="background-color: #43fef6;" height="100%"
-            width="100%"></img>
-          <div class="botoes">
-            <button class="botao-tela-cheia">VER PROJETO EM TELA CHEIA</button>
-            <a href="#" target="_blank">
-              <button>IR PARA O REPOSITORIO</button>
-            </a>
+
+        <!-- Projeto 2: Painel de Gestão & Indicadores -->
+        <div class="card project-card">
+          <div class="window-header">
+            <div class="window-dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <span class="window-url">painel.vitorgrey.dev</span>
+          </div>
+          <div class="project-content">
+            <div class="project-header">
+              <span class="project-badge">Gestão Financeira</span>
+              <h3>Painel Executivo &amp; Previsão de Caixa</h3>
+            </div>
+            <div class="img-container">
+              <img src="./assets/images/projects/portifolio.png" alt="Painel Executivo e Previsões" class="project-img">
+            </div>
+            <p class="project-desc">Dashboard interativo e responsivo que consolida dados de múltiplas planilhas, identifica vazamentos de margem e projeta o caixa futuro com modelos de Machine Learning.</p>
+            <div class="tech-tags">
+              <span>Data Analytics</span>
+              <span>Machine Learning</span>
+              <span>UI Responsiva</span>
+              <span>Gráficos Dinâmicos</span>
+            </div>
+            <div class="botoes">
+              <button class="botao-tela-cheia" 
+                data-img="./assets/images/projects/portifolio.png" 
+                data-title="Painel Executivo &amp; Previsão de Caixa"
+                data-desc="Interface moderna e acessível por computador e celular. Unifica entradas e saídas dispersas, calcula margem real de cada produto/serviço e aponta anomalias em despesas como taxas de cartão e fretes."
+                data-highlights="Acesso seguro em tempo real no celular|Previsão preditiva para antecipar meses difíceis|Alertas automáticos de gastos fora do padrão|Conexão com planilhas Excel e Google Sheets"
+                data-tech="JavaScript ES6, Python Data Science (Pandas, Scikit-Learn), CSS Glassmorphism, SVG Interativo">
+                🔍 VER DETALHES TÉCNICOS &amp; TELAS
+              </button>
+            </div>
           </div>
         </div>
-        <a href="https://github.com/vitugrey" target="_blank">
-          <button class="mais">VER MAIS</button>
-        </a>
+
+        <!-- Projeto 3: Automação Operacional Integrada -->
+        <div class="card project-card">
+          <div class="window-header">
+            <div class="window-dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <span class="window-url">automacao.vitorgrey.dev</span>
+          </div>
+          <div class="project-content">
+            <div class="project-header">
+              <span class="project-badge confidential">Sob Encomenda</span>
+              <h3>Automação de Rotinas &amp; Emissão de Relatórios</h3>
+            </div>
+            <div class="img-container placeholder-preview">
+              <div class="confidential-box">
+                <div class="lock-icon">⚙️</div>
+                <p>AUTOMAÇÃO DE PROCESSOS</p>
+                <small>Robôs e scripts em nuvem sob demanda</small>
+              </div>
+            </div>
+            <p class="project-desc">Automatização de processos repetitivos: coleta de dados de fornecedores, geração e envio de ordens de serviço em PDF e conciliação bancária sem clique humano.</p>
+            <div class="tech-tags">
+              <span>Python Backend</span>
+              <span>Docker</span>
+              <span>PDF Automático</span>
+              <span>APIs &amp; Webhooks</span>
+            </div>
+            <div class="botoes">
+              <button class="botao-tela-cheia" 
+                data-img="./assets/images/projects/RESERVADO.png" 
+                data-title="Automação de Rotinas &amp; Emissão de Relatórios"
+                data-desc="Solução voltada para negócios que perdem horas preenchendo relatórios manuais ou conferindo extratos. O robô faz todo o trabalho em segundo plano de forma silenciosa, confiável e com backup contínuo."
+                data-highlights="Eliminação completa de digitação repetitiva|Envio automático de ordens de serviço e faturas|Notificações diretas para clientes ou equipe|Infraestrutura leve rodando em containers Docker"
+                data-tech="Python, Celery, Docker, APIs REST, Weasyprint / PDF Generator">
+                🔍 VER DETALHES TÉCNICOS &amp; TELAS
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </section>
   </main>
-  <footer>
-    <div id="msg">
-      <a class="logo" href="#home">
-        <h3>Vitor Grey</h3>
-      </a>
-      <h2>Se você gostou do meu trabalho <br> e precisa de mim, estou <br> pronto para conversar com você.</h2>
-      <br>
-      <br>
-      <br>
-      <h2>
-        ©2025 por Vitor Grey. <br>
-        Todos os direitos reservados.
-      </h2>
+
+  <!-- SEÇÃO UNIFICADA: SOBRE MIM, CONTATO & FOOTER -->
+  <footer id="contact" class="unified-footer">
+    <div class="footer-container">
+      
+      <!-- COLUNA 1 (ESQUERDA): FOTO EM DESTAQUE -->
+      <div class="footer-col-photo">
+        <div class="photo-card">
+          <div class="photo-glow-effect"></div>
+          <div class="photo-badge-top">
+            <span class="photo-live-status">
+              <span class="status-pulse-dot"></span>
+              Disponível para projetos
+            </span>
+          </div>
+          <div class="photo-img-wrapper">
+            <img src="./assets/images/minha-foto.png" alt="Vitor Grey - Administrador e Desenvolvedor" class="vitor-hero-photo" loading="lazy">
+          </div>
+          <div class="photo-caption">
+            <span class="caption-name">Vitor Grey</span>
+            <span class="caption-title">Administrador &amp; Dev de Soluções</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- COLUNA 2 (MEIO): SOBRE MIM & VISÃO DE NEGÓCIO -->
+      <div class="footer-col-bio">
+        <span class="bio-pill">Sobre Mim &amp; Metodologia</span>
+        <h2 class="bio-headline">
+          Estratégia de Negócios + <br>
+          <span class="highlight-gold">Automação Inteligente</span>
+        </h2>
+        
+        <p class="bio-text">
+          Sou <strong>Administrador</strong> de formação e <strong>Desenvolvedor de Soluções</strong> na prática. Essa combinação me permite enxergar o que a maioria dos programadores não vê: <strong>a dor financeira e o tempo perdido no dia a dia da sua operação</strong>.
+        </p>
+
+        <p class="bio-text">
+          Desenvolvo ferramentas e robôs sob medida para <strong>pessoas e microempresas</strong> que precisam eliminar tarefas manuais exaustivas, estancar custos invisíveis e deixar o negócio rodando no automático 24/7.
+        </p>
+
+        <div class="bio-highlights">
+          <div class="bio-highlight-item">
+            <span class="bio-hl-icon">💡</span>
+            <div>
+              <strong>Foco em Lucro Real</strong>
+              <small>Soluções desenhadas para estancar vazamentos e gerar retorno imediato.</small>
+            </div>
+          </div>
+          <div class="bio-highlight-item">
+            <span class="bio-hl-icon">⚡</span>
+            <div>
+              <strong>Implementação Direta</strong>
+              <small>Sem burocracia ou termos difíceis: conectado ao seu WhatsApp e rotina.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COLUNA 3 (DIREITA): CONTATOS COM MÁXIMO FOCO NO WHATSAPP -->
+      <div class="footer-col-contact">
+        <div class="contact-cta-card">
+          <div class="contact-card-header">
+            <span class="cta-subtitle">Atendimento Direto</span>
+            <h3 class="cta-title">Vamos Conversar?</h3>
+            <p class="cta-desc">Me conte seu maior gargalo ou o que você gostaria de automatizar hoje:</p>
+          </div>
+
+          <!-- BOTÃO COM SUPER DESTAQUE NO WHATSAPP -->
+          <a href="https://wa.me/5521999677281?text=Ol%C3%A1%20Vitor!%20Vim%20pelo%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre%20uma%20solu%C3%A7%C3%A3o%20para%20o%20meu%20caso." 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="btn-whatsapp-spotlight"
+             aria-label="Falar com Vitor Grey no WhatsApp">
+            <div class="wa-spot-icon-wrap">
+              <span class="wa-spot-icon">💬</span>
+            </div>
+            <div class="wa-spot-content">
+              <span class="wa-spot-action">Falar no WhatsApp Agora</span>
+              <strong class="wa-spot-number">(21) 99967-7281</strong>
+              <span class="wa-spot-badge">● Resposta direta com o Vitor</span>
+            </div>
+            <span class="wa-spot-arrow">→</span>
+          </a>
+
+          <div class="contact-divider">
+            <span>ou outros canais</span>
+          </div>
+
+          <!-- CANAIS SECUNDÁRIOS -->
+          <ul class="contact-social-list">
+            <li>
+              <a href="mailto:vitormattos2011@gmail.com" class="social-link-item" title="Enviar e-mail">
+                <img src="./assets/images/gmail (1).png" alt="Gmail" class="social-icon">
+                <div class="social-info">
+                  <span class="social-label">E-mail Direto</span>
+                  <span class="social-val">vitormattos2011@gmail.com</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/vitu.grey/" target="_blank" rel="noopener noreferrer" class="social-link-item" title="Instagram de Vitor Grey">
+                <img src="./assets/images/instagram (1).png" alt="Instagram" class="social-icon">
+                <div class="social-info">
+                  <span class="social-label">Instagram</span>
+                  <span class="social-val">@vitu.grey</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/vitor-grey-8a643216b/" target="_blank" rel="noopener noreferrer" class="social-link-item" title="LinkedIn de Vitor Grey">
+                <img src="./assets/images/linkedin (1).png" alt="LinkedIn" class="social-icon">
+                <div class="social-info">
+                  <span class="social-label">LinkedIn</span>
+                  <span class="social-val">Vitor Grey</span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
     </div>
 
-    <div id="contatos">
-      <h1>Contatos</h1>
-      <ul>
-        <li><img src="./assets/images/gmail (1).png" alt="gmail"> <a href="vitormattos2011@gmail.com"
-            target="_blank">vitormattos2011@gmail.com</a></li>
-        <li><img src="./assets/images/instagram (1).png" alt="instagram"><a href="https://www.instagram.com/vitu.grey/"
-            target="_blank">@vitu.grey</a></li>
-        <li><img src="./assets/images/github (1).png" alt="github"> <a href="https://github.com/vitugrey"
-            target="_blank">vitugrey</a></li>
-        <li><img src="./assets/images/linkedin (1).png" alt="linkedin"><a
-            href="https://www.linkedin.com/in/vitor-grey-8a643216b/" target="_blank">Vitor Grey</a></li>
-      </ul>
+    <!-- FOOTER NAV & COPYRIGHT INFERIOR -->
+    <div class="footer-bottom-bar">
+      <div class="footnav-brand">
+        <svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" width="26" height="26">
+          <path class="vg-g" d="M 35 13 A 15 15 0 1 0 38 31 V 24 H 22" />
+          <path class="vg-v" d="M 15 13 L 23 35 L 31 13" />
+        </svg>
+        <span>Vitor Grey • Automação &amp; Dados</span>
+      </div>
+
+      <nav class="footnav-links" aria-label="Navegação do rodapé">
+        <a href="#hook">Início</a>
+        <a href="#dashboard-demo">Demonstração</a>
+        <a href="#solutions">O que eu resolvo</a>
+        <a href="#projects">Projetos</a>
+        <a href="#contact">Falar comigo</a>
+      </nav>
+
+      <p class="footnav-copy">
+        © 2026 Vitor Grey. Todos os direitos reservados.
+      </p>
     </div>
   </footer>
+
+  <!-- MODAL COM VISUALIZAÇÃO AMPLIADA E DETALHAMENTO TÉCNICO COMPLETO -->
+  <div id="imageModal" class="image-modal" aria-hidden="true" role="dialog">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-content modal-technical">
+      <button class="modal-close" id="modalClose" aria-label="Fechar visualização">&times;</button>
+      
+      <div class="modal-grid">
+        <div class="modal-media-col">
+          <img id="modalImg" src="" alt="Projeto em tela cheia">
+        </div>
+        <div class="modal-info-col">
+          <span class="modal-badge">Ficha Técnica &amp; Arquitetura</span>
+          <h3 id="modalTitle">Nome do Projeto</h3>
+          <p id="modalDesc" class="modal-desc"></p>
+          
+          <div class="modal-block">
+            <h4>Benefícios &amp; Resultados:</h4>
+            <ul id="modalHighlights" class="modal-highlights-list"></ul>
+          </div>
+
+          <div class="modal-block">
+            <h4>Stack &amp; Tecnologias Aplicadas:</h4>
+            <div id="modalTechTags" class="tech-tags"></div>
+          </div>
+
+          <div class="modal-cta-box">
+            <a id="modalWhatsAppBtn" href="https://wa.me/5521999677281" target="_blank" rel="noopener noreferrer" class="btn-primary">
+              <span>Quero uma solução similar</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>
