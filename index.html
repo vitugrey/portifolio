@@ -5,38 +5,38 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inconsolata:wght@400;600;700;900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inconsolata:wght@400;600;700;900&display=swap"
     rel="stylesheet" />
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="author" content="Vitor Grey" />
-  <meta name="description" content="Vitor Grey - Automação, análise de dados e soluções sob medida para pessoas e microempresas descobrirem para onde o dinheiro está indo." />
-  <meta property="og:title" content="Vitor Grey | Automação e Análise de Dados" />
-  <meta property="og:description" content="Automação, análise de dados e soluções sob medida para pessoas e microempresas terem clareza financeira e processos 24/7." />
+  <meta name="author" content="Vitor Grey - GreyWorks" />
+  <meta name="description" content="GreyWorks por Vitor Grey - Transformamos problemas chatos do dia a dia em sistemas simples, visualização de dados com Machine Learning e automação para maximizar seu lucro." />
+  <meta property="og:title" content="GreyWorks por Vitor Grey | Sistemas Simples &amp; Lucro com Dados" />
+  <meta property="og:description" content="Transformando problemas chatos do dia a dia em sistemas simples, visualização inteligente de dados e automação de processos." />
   <meta property="og:image" content="./assets/images/projects/portifolio.png" />
   <meta property="og:url" content="https://vitor-grey.vercel.app/" />
   <meta property="og:type" content="website" />
   <meta name="keywords"
-    content="programador, programação, dev, desenvolvedor, python, backend, data science, machine learning, inteligência artificial, automação, microempresas, planilhas" />
+    content="GreyWorks, Vitor Grey, automação de processos, machine learning, visualização de dados, aumento de lucro, microempresas, software sob medida, python, inteligência artificial" />
   <meta name="robots" content="index" />
 
   <link rel="icon" href="./assets/images/logo-vg.svg" type="image/svg+xml" />
   <link rel="alternate icon" href="./assets/images/favicon.png" type="image/png" />
-  <link rel="stylesheet" href="./assets/css/style.css" />
+  <link rel="stylesheet" href="./assets/css/style.css?v=2.5" />
   <script src="https://unpkg.com/scrollreveal" defer></script>
-  <script type="module" src="./assets/js/main.js" defer></script>
+  <script type="module" src="./assets/js/main.js?v=2.5" defer></script>
 
-  <title>Vitor Grey | Automação e Análise de Dados para Você e Seu Negócio</title>
+  <title>GreyWorks por Vitor Grey | Sistemas Simples &amp; Lucro com Dados</title>
 </head>
 
 <body>
-  <!-- Gradiente compartilhado pelas logos VG -->
+  <!-- Gradiente metálico compartilhado pelas logos GreyWorks -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
     <defs>
-      <linearGradient id="vgGold" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0" stop-color="#FFE29F" />
-        <stop offset="1" stop-color="#F2AA52" />
+      <linearGradient id="vgMetal" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#FFFFFF" />
+        <stop offset="100%" stop-color="#9CA3AF" />
       </linearGradient>
     </defs>
   </svg>
@@ -50,12 +50,33 @@
 
   <header id="siteHeader">
     <nav id="navigation">
-      <a class="logo" href="#" aria-label="Vitor Grey - início">
-        <svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true">
-          <path class="vg-g" d="M 35 13 A 15 15 0 1 0 38 31 V 24 H 22" />
-          <path class="vg-v" d="M 15 13 L 23 35 L 31 13" />
+      <a class="logo" href="#" aria-label="GreyWorks por Vitor Grey - início">
+        <svg class="logo-mark" viewBox="0 0 100 100" aria-hidden="true">
+          <defs>
+            <linearGradient id="navLogoBg" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#1B1E26"/>
+              <stop offset="100%" stop-color="#0E1015"/>
+            </linearGradient>
+            <mask id="navCutMask">
+              <rect width="100" height="100" fill="white"/>
+              <!-- Corte diagonal em 42° idêntico à imagem de referência -->
+              <polygon points="36,44 49,33.5 52.8,37 39.8,47.5" fill="black"/>
+            </mask>
+          </defs>
+          <rect x="2.5" y="2.5" width="95" height="95" rx="20" fill="url(#navLogoBg)" stroke="rgba(255, 255, 255, 0.14)" stroke-width="1.2"/>
+          <text x="50" y="66" 
+                font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" 
+                font-size="47.5" 
+                font-weight="800" 
+                fill="#FFFFFF" 
+                text-anchor="middle" 
+                letter-spacing="-1.2px"
+                mask="url(#navCutMask)">VG</text>
         </svg>
-        <span class="logo-name">Vitor Grey</span>
+        <div class="logo-brand-wrap">
+          <span class="logo-brand-name"><strong class="brand-grey">Grey</strong><span class="brand-works">Works</span></span>
+          <span class="logo-brand-sub">by Vitor Grey</span>
+        </div>
       </a>
       <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menu de navegação" aria-expanded="false">
         <span></span>
@@ -64,8 +85,8 @@
       </button>
       <ul class="menu" id="navMenu">
         <li><a href="#dashboard-demo">Demonstração</a></li>
-        <li><a href="#solutions">O que eu resolvo</a></li>
-        <li><a href="#projects">Projetos</a></li>
+        <li><a href="#solutions">Onde posso ajudar</a></li>
+        <li><a href="#projects">Soluções Desenvolvidas</a></li>
         <li><a href="#contact" class="nav-cta">Fale comigo</a></li>
       </ul>
     </nav>
@@ -74,28 +95,28 @@
     <!-- HERO / HOOK -->
     <section id="hook">
       <div class="hook-content">
-        <span class="hook-eyebrow">Análise de dados &amp; automação para você ou seu negócio</span>
+        <span class="hook-eyebrow"><span class="status-pulse-dot"></span> Análise de Dados &amp; ML •  Automações Sob Medida</span>
         <h1>
-          Cansado de fechar o mês sem saber para onde o dinheiro foi?
-          <span class="highlight-gold">Seus números já sabem a resposta.</span>
+          Transformo problemas chatos do dia a dia em
+          <span class="highlight-titanium">soluções simples com mais lucro.</span>
         </h1>
         <p class="hook-sub">
-          Conecto suas planilhas, vendas e rotinas a um painel simples e intuitivo, mostrando para onde o
-          dinheiro está indo e ajudando pessoas e microempresas a terem clareza e previsibilidade com Machine Learning.
+          Conecto suas planilhas, imagens, chat de atendimentos e rotinas operacionais em um único lugar. Gere insights práticos, clareza diária e previsão com Machine Learning para transformar dados em lucro.
         </p>
         <div class="hero-actions">
-          <a href="#projects" class="btn-secondary" id="hookCtaProjects">
-            <span>Em que posso te ajudar?</span>
+          <a href="#solutions" class="btn-secondary" id="hookCtaProjects">
+            <span>Ver soluções prontas</span>
           </a>
-          <a href="https://wa.me/5521999677281?text=Ol%C3%A1%20Vitor!%20Gostaria%20de%20descobrir%20onde%20estou%20perdendo%20dinheiro%20e%20conhecer%20suas%20solu%C3%A7%C3%B5es." target="_blank" rel="noopener noreferrer" class="btn-primary" id="hookCtaWhatsapp">
-            <span>Quero descobrir onde perco dinheiro</span>
+          <a href="https://wa.me/5521999677281?text=Ol%C3%A1!%20Gostaria%20de%20conversar%20sobre%20automa%C3%A7%C3%B5es%20sob%20medida%2C%20aplica%C3%A7%C3%B5es%20de%20ML%20e%20integra%C3%A7%C3%A3o%20de%20dados." target="_blank" rel="noopener noreferrer" class="btn-primary" id="hookCtaWhatsapp">
+            <span>Quero automatizar meu negócio</span>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
           </a>
         </div>
         <div class="hero-features">
-          <span class="feature-item">✓ Usa as planilhas que você já tem</span>
-          <span class="feature-item">✓ Painel acessível pelo celular</span>
-          <span class="feature-item">✓ Previsões com Machine Learning</span>
+          <span class="feature-item"><span class="feature-check">✓</span> Apps web e mobile sob medida</span>
+          <span class="feature-item"><span class="feature-check">✓</span> Aplicações de ML e IA</span>
+          <span class="feature-item"><span class="feature-check">✓</span> Integrações de dados</span>
+          <span class="feature-item"><span class="feature-check">✓</span> 24/7 conectada ao whatsapp</span>
         </div>
       </div>
 
@@ -133,7 +154,7 @@
 
               <label class="st-label">Notificações automáticas</label>
               <button type="button" class="btn-demo-action" id="btnDispararAlerta">
-                ⚡ Testar envio no WhatsApp
+                ⚡ Enviar relatório para WhatsApp
               </button>
               
               <div class="sidebar-help">
@@ -154,19 +175,21 @@
                 <div class="st-metric">
                   <span class="m-label">Faturamento Mensal</span>
                   <span class="m-value" id="valFaturamento">R$ 184.320</span>
-                  <span class="m-delta up-good" id="deltaFaturamento">↑ 4,7% vs. mês ant.</span>
+                  <span class="m-delta up-good" id="deltaFaturamento">↑ 4,7% vs. ant.</span>
                 </div>
                 <div class="st-metric">
                   <span class="m-label">Despesas Operacionais</span>
                   <span class="m-value" id="valDespesas">R$ 171.950</span>
-                  <span class="m-delta up-bad" id="deltaDespesas">↑ 5,5% vs. mês ant.</span>
+                  <span class="m-delta up-bad" id="deltaDespesas">↑ 5,5% vs. ant.</span>
                 </div>
                 <div class="st-metric is-profit-highlight">
                   <span class="m-label">Lucro Líquido do Mês</span>
                   <span class="m-value profit-positive" id="valLucro">+R$ 12.370</span>
-                  <span class="m-delta up-good" id="deltaLucro">✓ Saldo positivo no mês</span>
+                  <span class="m-delta up-good" id="deltaLucro">✓ Saldo positivo</span>
                 </div>
-                <div class="st-metric is-profit-highlight">
+                <div class="st-metric">
+                  <span class="m-label" id="labelCard4">Margem Operacional</span>
+                  <span class="m-value profit-positive" id="valMargem">6,7%</span>
                   <span class="m-delta up-good" id="deltaMargem">↑ Margem preservada</span>
                 </div>
               </div>
@@ -176,8 +199,8 @@
                 <div class="st-card">
                   <p class="st-card-title">Fluxo de Caixa &amp; Projeção com Machine Learning</p>
                   <svg class="st-chart" viewBox="0 0 400 190" role="img" aria-label="Gráfico interativo de faturamento e despesas">
-                    <rect class="forecast-zone" x="277" y="20" width="113" height="150" />
-                    <text class="forecast-label" x="333" y="34">previsão IA</text>
+                    <rect id="forecastZone" class="forecast-zone" x="277" y="20" width="113" height="150" />
+                    <text id="forecastLabel" class="forecast-label" x="333" y="34">IA (3 meses)</text>
                     <line class="grid-l" x1="20" y1="60" x2="390" y2="60" />
                     <line class="grid-l" x1="20" y1="100" x2="390" y2="100" />
                     <line class="grid-l" x1="20" y1="140" x2="390" y2="140" />
@@ -188,10 +211,12 @@
                     <path id="chartLineExpFc" class="line-fc line-exp-fc" d="M277 71 L329 60 L380 50" />
                     <circle id="ptRev" class="pt-rev" cx="277" cy="52" r="4" />
                     <circle id="ptExp" class="pt-exp" cx="277" cy="71" r="4" />
+                    <circle id="ptRevFc" class="pt-rev" cx="380" cy="40" r="4" style="filter: drop-shadow(0 0 8px #00DC82);" />
+                    <circle id="ptExpFc" class="pt-exp" cx="380" cy="50" r="4" style="filter: drop-shadow(0 0 8px #F87171);" />
                     <g class="axis-x">
                       <text x="20" y="186">Jan</text><text x="71" y="186">Fev</text><text x="123" y="186">Mar</text>
                       <text x="174" y="186">Abr</text><text x="226" y="186">Mai</text><text x="277" y="186">Jun</text>
-                      <text x="329" y="186">Jul</text><text x="380" y="186">Ago</text>
+                      <text x="329" y="186" id="axisFc1">Jul</text><text x="380" y="186" id="axisFc2">Ago</text>
                     </g>
                   </svg>
                   <div class="st-legend">
@@ -332,7 +357,7 @@
 
               <!-- Botão Interativo no Celular -->
               <button type="button" class="phone-cta-btn" id="btnSimularResolvido">
-                ⚡ Otimizar &amp; Reter Lucro
+                ⚡ Enviar relatório para WhatsApp
               </button>
             </div>
           </div>
@@ -349,40 +374,40 @@
         <!-- Card Esquerda: Agentes Autônomos -->
         <div class="solution-card">
           <div class="solution-icon">🤖</div>
-          <h3>Agentes Autônomos &amp; Automação de Rotinas</h3>
-          <p>Criação de agentes inteligentes com IA para gerenciar e automatizar os sistemas e a rotina da sua empresa: atendimento ao cliente, cobrança, emissão de relatórios e triagem sem intervenção humana.</p>
+          <h3>Agentes Autônomos</h3>
+          <p>Crie seu próprio agente autônomo para automatizar suas tarefas e processos repetitivos. Crie rotinas diárias para o agente, atendimento automático inteligente e triagem qualificada antes de iniciar a conversa com o humano.</p>
           <ul class="solution-perks">
-            <li><span class="perk-check">✓</span><span>Sistemas trabalhando 24/7 de forma independente</span></li>
-            <li><span class="perk-check">✓</span><span>Integração direta com WhatsApp, CRM e planilhas</span></li>
-            <li><span class="perk-check">✓</span><span>Eliminação de tarefas manuais e retrabalho diário</span></li>
-            <li><span class="perk-check">✓</span><span>Notificações automáticas para gestor e equipe</span></li>
+            <li><span class="perk-check">✓</span><span>Crie seu próprio agente autônomo sob medida</span></li>
+            <li><span class="perk-check">✓</span><span>Rotinas diárias para o agente executar sozinho</span></li>
+            <li><span class="perk-check">✓</span><span>Atendimento automático e inteligente 24/7</span></li>
+            <li><span class="perk-check">✓</span><span>Triagem antes de iniciar a conversa com o humano</span></li>
           </ul>
         </div>
 
-        <!-- Card Centro (Destaque): Previsão e Controle por ML -->
+        <!-- Card Centro (Destaque): Dashboard com IA -->
         <div class="solution-card featured">
           <div class="popular-tag">Mais Procurado</div>
           <div class="solution-icon">📈</div>
-          <h3>Previsão &amp; Controle da Empresa por ML</h3>
-          <p>Descubra onde o dinheiro está escorrendo antes do fim do mês. Modelos de Machine Learning conectados às suas vendas e despesas para projetar caixa, antecipar riscos e apontar decisões lucrativas.</p>
+          <h3>Dashboard com IA</h3>
+          <p>Um dashboard com AI que traduz seus números e já sabe exatamente para onde seu dinheiro está indo. Feche o mês com total clareza, previsões preditivas e estratégias seguras para tomada de decisão com base nos outros meses.</p>
           <ul class="solution-perks">
-            <li><span class="perk-check">✓</span><span>Projeção preditiva de faturamento e fluxo de caixa</span></li>
-            <li><span class="perk-check">✓</span><span>Identificação de taxas ocultas e custos atípicos</span></li>
-            <li><span class="perk-check">✓</span><span>Alertas de desvios e outliers antes de prejuízo</span></li>
-            <li><span class="perk-check">✓</span><span>Painel executivo acessível no computador e celular</span></li>
+            <li><span class="perk-check">✓</span><span>Já sabe exatamente para onde seu dinheiro está indo</span></li>
+            <li><span class="perk-check">✓</span><span>Feche o mês com total clareza e sem surpresas</span></li>
+            <li><span class="perk-check">✓</span><span>Previsão de caixa e faturamento com Machine Learning</span></li>
+            <li><span class="perk-check">✓</span><span>Estratégias de decisão com base nos outros meses</span></li>
           </ul>
         </div>
 
-        <!-- Card Direita: Automação de Conteúdo em Geral -->
+        <!-- Card Direita: Automação de Conteúdo -->
         <div class="solution-card">
           <div class="solution-icon">✨</div>
-          <h3>Automação de Conteúdo &amp; Comunicação</h3>
-          <p>Esteira completa para produzir e disparar conteúdos sem perder horas na frente da tela: newsletters semanais, roteiros para vídeos/redes, e-mails comerciais com design elegante e scripts de trabalho otimizados.</p>
+          <h3>Automação de Conteúdo</h3>
+          <p>Automatização completa de conteúdo para criar suas próprias newsletters semanais do seu jeito, seus roteiros de vídeos com base na referência que você quiser e e-mails comerciais com design elegante.</p>
           <ul class="solution-perks">
-            <li><span class="perk-check">✓</span><span>Newsletters automáticas com curadoria e diagramação moderna</span></li>
-            <li><span class="perk-check">✓</span><span>Roteiros estruturados prontos para gravação e postagem</span></li>
-            <li><span class="perk-check">✓</span><span>E-mails com design atrativo para clientes e leads</span></li>
-            <li><span class="perk-check">✓</span><span>Scripts e fluxos para acelerar seu fluxo de trabalho</span></li>
+            <li><span class="perk-check">✓</span><span>Crie suas próprias newsletters semanais como quiser</span></li>
+            <li><span class="perk-check">✓</span><span>Roteiros de vídeos com base na referência que você quiser</span></li>
+            <li><span class="perk-check">✓</span><span>Monte um e-mail comercial com design mais elegante</span></li>
+            <li><span class="perk-check">✓</span><span>Esteira completa de publicação e agendamento</span></li>
           </ul>
         </div>
       </div>
@@ -390,7 +415,7 @@
 
     <section id="projects">
       <h2 class="titulo">Soluções Desenvolvidas</h2>
-      <p class="section-subtitle">Exemplos reais de ferramentas construídas sob medida para resolver gargalos de operação e atendimento.</p>
+      <p class="section-subtitle">Exemplos reais de ferramentas construídas para resolver problemas e que podem ser ajustada sob medida para você.</p>
       
       <div id="container-projects">
         
@@ -422,48 +447,54 @@
             <div class="botoes">
               <button class="botao-tela-cheia" 
                 data-img="./assets/images/projects/chatbot.png" 
+                data-badge="Atendimento &amp; Conversão 24/7"
                 data-title="Agente Virtual Inteligente &amp; Triagem"
-                data-desc="Desenvolvido para atender clientes instantaneamente a qualquer hora do dia ou da noite. O sistema consome documentos ou catálogo da empresa, responde em linguagem natural, filtra leads frios e avisa o responsável imediatamente com um resumo do cliente."
-                data-highlights="IA Generativa sob medida|Disponibilidade 24 horas por dia|Redução de até 80% no tempo de resposta inicial|Integração direta com WhatsApp e CRM"
-                data-tech="Python, FastAPI, OpenAI GPT-4o, Streamlit, PostgreSQL">
+                data-problem="Leads e clientes esperando horas por resposta no WhatsApp, perda de vendas à noite e fins de semana, e equipe sobrecarregada respondendo repetidamente às mesmas dúvidas básicas."
+                data-solution="Agente inteligente com IA treinado no catálogo e rotina da sua empresa: responde dúvidas em segundos 24/7, filtra curiosos e encaminha o lead qualificado pronto para o fechamento."
+                data-highlights="Atendimento imediato 24 horas por dia sem custo de horas extras|Filtro automático de curiosos para poupar o tempo da equipe|Respostas contextualizadas e humanizadas no WhatsApp|Aumento comprovado na conversão de vendas diárias"
+                data-demo-url="#">
                 🔍 VER DETALHES TÉCNICOS &amp; TELAS
               </button>
             </div>
           </div>
         </div>
 
-        <!-- Projeto 2: Painel de Gestão & Indicadores -->
-        <div class="card project-card">
+        <!-- Projeto 2: Finance Engine -->
+        <div class="card project-card featured-project">
           <div class="window-header">
             <div class="window-dots">
               <span class="dot red"></span>
               <span class="dot yellow"></span>
               <span class="dot green"></span>
             </div>
-            <span class="window-url">painel.vitorgrey.dev</span>
+            <span class="window-url">finance-engine.vitorgrey.com</span>
           </div>
           <div class="project-content">
             <div class="project-header">
-              <span class="project-badge">Gestão Financeira</span>
-              <h3>Painel Executivo &amp; Previsão de Caixa</h3>
+              <span class="project-badge">Controle Financeiro</span>
+              <h3>Finance Engine</h3>
             </div>
             <div class="img-container">
-              <img src="./assets/images/projects/portifolio.png" alt="Painel Executivo e Previsões" class="project-img">
+              <img src="./assets/images/projects/finance-engine-overview.png" alt="Finance Engine by GreyWorks - Plataforma de Inteligência Financeira e B3" class="project-img">
             </div>
-            <p class="project-desc">Dashboard interativo e responsivo que consolida dados de múltiplas planilhas, identifica vazamentos de margem e projeta o caixa futuro com modelos de Machine Learning.</p>
+            <p class="project-desc">Plataforma pessoal para consolidação patrimonial e inteligência de caixa desenvolvida pela GreyWorks. Unifica custódia da B3, cotações em tempo real, auditoria de despesas e diagnóstico de liquidez.</p>
             <div class="tech-tags">
-              <span>Data Analytics</span>
-              <span>Machine Learning</span>
-              <span>UI Responsiva</span>
-              <span>Gráficos Dinâmicos</span>
+              <span>Django 6.0</span>
+              <span>Pandas</span>
+              <span>Chart.js</span>
+              <span>yfinance</span>
             </div>
             <div class="botoes">
               <button class="botao-tela-cheia" 
-                data-img="./assets/images/projects/portifolio.png" 
-                data-title="Painel Executivo &amp; Previsão de Caixa"
-                data-desc="Interface moderna e acessível por computador e celular. Unifica entradas e saídas dispersas, calcula margem real de cada produto/serviço e aponta anomalias em despesas como taxas de cartão e fretes."
-                data-highlights="Acesso seguro em tempo real no celular|Previsão preditiva para antecipar meses difíceis|Alertas automáticos de gastos fora do padrão|Conexão com planilhas Excel e Google Sheets"
-                data-tech="JavaScript ES6, Python Data Science (Pandas, Scikit-Learn), CSS Glassmorphism, SVG Interativo">
+                data-img="./assets/images/projects/finance-engine-overview.png" 
+                data-title="Finance Engine"
+                data-badge="Engenharia Financeira"
+                data-problem="Investimentos, notas de corretoras e despesas espalhados em múltiplas planilhas confusas. Zero clareza de onde o dinheiro está escorrendo no fim do mês e incerteza sobre a real autonomia do caixa."
+                data-solution="Centralização total em um painel executivo: custódia da B3 sincronizada, cotações em tempo real, auditoria de despesas para estancar vazamentos, cálculo exato da sua autonomia de reserva (Runway) e simulação de metas de independência financeira."
+                data-highlights="Fim das planilhas confusas: todos os seus números em uma única tela|Diagnóstico de Runway: saiba exatamente quantos meses de fôlego você tem|Detecção de taxas atípicas e despesas invisíveis antes de virarem prejuízo|Simulador preditivo para planejar aportes e metas de longo prazo"
+                data-demo-url="#"
+                data-github-url="https://github.com/vitugrey/Finance-Engine"
+                data-images='[{"src":"./assets/images/projects/finance-engine-overview.png","title":"1/4: Visão Geral Consolidada, KPIs &amp; Dinâmica de Caixa"},{"src":"./assets/images/projects/finance-engine-investments.png","title":"2/4: Portfólio de Ativos, Alocação por Classe B3 &amp; Posições"},{"src":"./assets/images/projects/finance-engine-cashflow.png","title":"3/4: Carteira, Fluxo de Caixa &amp; Raio-X por Categoria"},{"src":"./assets/images/projects/finance-engine-goals.png","title":"4/4: Metas, Simulador de Juros Compostos &amp; Marcos"}]'>
                 🔍 VER DETALHES TÉCNICOS &amp; TELAS
               </button>
             </div>
@@ -535,40 +566,40 @@
           </div>
           <div class="photo-caption">
             <span class="caption-name">Vitor Grey</span>
-            <span class="caption-title">Administrador &amp; Dev de Soluções</span>
+            <span class="caption-title">Criador da GreyWorks • Admin &amp; Dev</span>
           </div>
         </div>
       </div>
 
       <!-- COLUNA 2 (MEIO): SOBRE MIM & VISÃO DE NEGÓCIO -->
       <div class="footer-col-bio">
-        <span class="bio-pill">Sobre Mim &amp; Metodologia</span>
+        <span class="bio-pill">A Mente &amp; A Fábrica</span>
         <h2 class="bio-headline">
-          Estratégia de Negócios + <br>
-          <span class="highlight-gold">Automação Inteligente</span>
+          Vitor Grey + <br>
+          <span class="highlight-titanium">GreyWorks</span>
         </h2>
         
         <p class="bio-text">
-          Sou <strong>Administrador</strong> de formação e <strong>Desenvolvedor de Soluções</strong> na prática. Essa combinação me permite enxergar o que a maioria dos programadores não vê: <strong>a dor financeira e o tempo perdido no dia a dia da sua operação</strong>.
+          A <strong>GreyWorks</strong> é a fábrica de softwares e automações fundada por <strong>Vitor Grey</strong> para transformar problemas chatos, repetitivos e caros do cotidiano em <strong>sistemas simples e lucrativos</strong>.
         </p>
 
         <p class="bio-text">
-          Desenvolvo ferramentas e robôs sob medida para <strong>pessoas e microempresas</strong> que precisam eliminar tarefas manuais exaustivas, estancar custos invisíveis e deixar o negócio rodando no automático 24/7.
+          Unindo a visão financeira e de processos da <strong>Administração</strong> à precisão técnica do desenvolvimento com <strong>Machine Learning</strong>, construímos ferramentas sob medida para <strong>pessoas e microempresas</strong> estancarem vazamentos de caixa e operarem no piloto automático.
         </p>
 
         <div class="bio-highlights">
           <div class="bio-highlight-item">
-            <span class="bio-hl-icon">💡</span>
+            <span class="bio-hl-icon">⚡</span>
             <div>
-              <strong>Foco em Lucro Real</strong>
-              <small>Soluções desenhadas para estancar vazamentos e gerar retorno imediato.</small>
+              <strong>Sistemas Simples</strong>
+              <small>Interfaces limpas e diretas, sem telas confusas ou burocracia.</small>
             </div>
           </div>
           <div class="bio-highlight-item">
-            <span class="bio-hl-icon">⚡</span>
+            <span class="bio-hl-icon">📈</span>
             <div>
-              <strong>Implementação Direta</strong>
-              <small>Sem burocracia ou termos difíceis: conectado ao seu WhatsApp e rotina.</small>
+              <strong>Foco em Lucro Real</strong>
+              <small>Decisões guiadas por dados com ML para aumentar sua margem.</small>
             </div>
           </div>
         </div>
@@ -578,17 +609,17 @@
       <div class="footer-col-contact">
         <div class="contact-cta-card">
           <div class="contact-card-header">
-            <span class="cta-subtitle">Atendimento Direto</span>
+            <span class="cta-subtitle">Atendimento Direto GreyWorks</span>
             <h3 class="cta-title">Vamos Conversar?</h3>
             <p class="cta-desc">Me conte seu maior gargalo ou o que você gostaria de automatizar hoje:</p>
           </div>
 
           <!-- BOTÃO COM SUPER DESTAQUE NO WHATSAPP -->
-          <a href="https://wa.me/5521999677281?text=Ol%C3%A1%20Vitor!%20Vim%20pelo%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre%20uma%20solu%C3%A7%C3%A3o%20para%20o%20meu%20caso." 
+          <a href="https://wa.me/5521999677281?text=Ol%C3%A1%20Vitor!%20Vim%20pela%20GreyWorks%20e%20gostaria%20de%20conversar%20sobre%20uma%20solu%C3%A7%C3%A3o%20para%20o%20meu%20caso." 
              target="_blank" 
              rel="noopener noreferrer" 
              class="btn-whatsapp-spotlight"
-             aria-label="Falar com Vitor Grey no WhatsApp">
+             aria-label="Falar com Vitor Grey na GreyWorks via WhatsApp">
             <div class="wa-spot-icon-wrap">
               <span class="wa-spot-icon">💬</span>
             </div>
@@ -642,11 +673,28 @@
     <!-- FOOTER NAV & COPYRIGHT INFERIOR -->
     <div class="footer-bottom-bar">
       <div class="footnav-brand">
-        <svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" width="26" height="26">
-          <path class="vg-g" d="M 35 13 A 15 15 0 1 0 38 31 V 24 H 22" />
-          <path class="vg-v" d="M 15 13 L 23 35 L 31 13" />
+        <svg class="logo-mark-mini" viewBox="0 0 100 100" aria-hidden="true" width="28" height="28">
+          <defs>
+            <linearGradient id="footLogoBg" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#1B1E26"/>
+              <stop offset="100%" stop-color="#0E1015"/>
+            </linearGradient>
+            <mask id="footCutMask">
+              <rect width="100" height="100" fill="white"/>
+              <polygon points="36,44 49,33.5 52.8,37 39.8,47.5" fill="black"/>
+            </mask>
+          </defs>
+          <rect x="2.5" y="2.5" width="95" height="95" rx="20" fill="url(#footLogoBg)" stroke="rgba(255, 255, 255, 0.14)" stroke-width="1.2"/>
+          <text x="50" y="66" 
+                font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" 
+                font-size="47.5" 
+                font-weight="800" 
+                fill="#FFFFFF" 
+                text-anchor="middle" 
+                letter-spacing="-1.2px"
+                mask="url(#footCutMask)">VG</text>
         </svg>
-        <span>Vitor Grey • Automação &amp; Dados</span>
+        <span class="footnav-brand-title"><strong class="brand-grey">Grey</strong><span class="brand-works">Works</span> <small>by Vitor Grey</small></span>
       </div>
 
       <nav class="footnav-links" aria-label="Navegação do rodapé">
@@ -658,7 +706,7 @@
       </nav>
 
       <p class="footnav-copy">
-        © 2026 Vitor Grey. Todos os direitos reservados.
+        © 2026 GreyWorks • Vitor Grey. Todos os direitos reservados.
       </p>
     </div>
   </footer>
@@ -671,32 +719,61 @@
       
       <div class="modal-grid">
         <div class="modal-media-col">
-          <img id="modalImg" src="" alt="Projeto em tela cheia">
+          <div class="modal-carousel-stage" id="modalCarouselStage">
+            <button type="button" class="carousel-arrow prev" id="carouselPrevBtn" aria-label="Imagem anterior">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <div class="carousel-img-viewport">
+              <img id="modalImg" src="" alt="Captura de tela do projeto">
+              <div class="carousel-caption-overlay" id="carouselCaptionOverlay">Visão Geral Consolidada</div>
+            </div>
+            <button type="button" class="carousel-arrow next" id="carouselNextBtn" aria-label="Próxima imagem">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+          <div class="carousel-thumbs-row" id="carouselThumbsRow"></div>
         </div>
+
         <div class="modal-info-col">
-          <span class="modal-badge">Ficha Técnica &amp; Arquitetura</span>
+          <span class="modal-badge" id="modalBadge">Engenharia Financeira</span>
           <h3 id="modalTitle">Nome do Projeto</h3>
-          <p id="modalDesc" class="modal-desc"></p>
+          
+          <!-- Bloco Comercial Focado em Vendas: Problema Antes vs Solução Agora -->
+          <div class="modal-case-comparison">
+            <div class="case-box problem-box">
+              <span class="case-tag problem-tag">⚠️ O Problema de Antes</span>
+              <p id="modalProblemText"></p>
+            </div>
+            <div class="case-box solution-box">
+              <span class="case-tag solution-tag">✅ A Solução com o Projeto</span>
+              <p id="modalSolutionText"></p>
+            </div>
+          </div>
           
           <div class="modal-block">
-            <h4>Benefícios &amp; Resultados:</h4>
+            <h4>O que você ganha com este sistema:</h4>
             <ul id="modalHighlights" class="modal-highlights-list"></ul>
           </div>
 
-          <div class="modal-block">
-            <h4>Stack &amp; Tecnologias Aplicadas:</h4>
-            <div id="modalTechTags" class="tech-tags"></div>
-          </div>
-
           <div class="modal-cta-box">
-            <a id="modalWhatsAppBtn" href="https://wa.me/5521999677281" target="_blank" rel="noopener noreferrer" class="btn-primary">
-              <span>Quero uma solução similar</span>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            <div class="modal-cta-actions">
+              <a id="modalWhatsAppBtn" href="https://wa.me/5521999677281" target="_blank" rel="noopener noreferrer" class="btn-primary modal-btn-whatsapp">
+                <span>Quero uma solução similar</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+              <a id="modalDemoBtn" href="#" target="_blank" rel="noopener noreferrer" class="modal-btn-demo">
+                <span>Demo</span>
+              </a>
+            </div>
+            <a id="modalGithubLink" href="https://github.com/vitugrey/Finance-Engine" target="_blank" rel="noopener noreferrer" class="modal-github-link">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              <span id="modalGithubText">Repositório Oficial: github.com/vitugrey/Finance-Engine</span>
             </a>
           </div>
         </div>
       </div>
     </div>
+  </div>
   </div>
 </body>
 

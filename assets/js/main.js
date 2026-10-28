@@ -96,16 +96,70 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  // 4. MODAL TÉCNICO COMPLETO PARA PROJETOS & VENDAS
+  // 4. MODAL TÉCNICO COMPLETO COM CARROSSEL PARA PROJETOS
   const modal = document.getElementById('imageModal');
   const modalImg = document.getElementById('modalImg');
   const modalTitle = document.getElementById('modalTitle');
   const modalDesc = document.getElementById('modalDesc');
+  const modalBadge = document.getElementById('modalBadge');
+  const modalProblemText = document.getElementById('modalProblemText');
+  const modalSolutionText = document.getElementById('modalSolutionText');
   const modalHighlights = document.getElementById('modalHighlights');
-  const modalTechTags = document.getElementById('modalTechTags');
   const modalClose = document.getElementById('modalClose');
   const modalBackdrop = document.getElementById('modalBackdrop');
   const modalWhatsAppBtn = document.getElementById('modalWhatsAppBtn');
+  const modalDemoBtn = document.getElementById('modalDemoBtn');
+  const modalGithubLink = document.getElementById('modalGithubLink');
+  const modalGithubText = document.getElementById('modalGithubText');
+
+  const carouselPrevBtn = document.getElementById('carouselPrevBtn');
+  const carouselNextBtn = document.getElementById('carouselNextBtn');
+  const carouselCaptionOverlay = document.getElementById('carouselCaptionOverlay');
+  const carouselThumbsRow = document.getElementById('carouselThumbsRow');
+  const modalCarouselStage = document.getElementById('modalCarouselStage');
+
+  let currentCarouselImages = [];
+  let currentCarouselIndex = 0;
+
+  function updateCarouselSlide(index) {
+    if (!currentCarouselImages.length) return;
+    currentCarouselIndex = (index + currentCarouselImages.length) % currentCarouselImages.length;
+    const item = currentCarouselImages[currentCarouselIndex];
+
+    if (modalImg) {
+      modalImg.style.opacity = '0.3';
+      setTimeout(() => {
+        modalImg.src = item.src;
+        modalImg.alt = item.title || 'Tela do Projeto';
+        modalImg.style.opacity = '1';
+      }, 120);
+    }
+
+    if (carouselCaptionOverlay) {
+      carouselCaptionOverlay.textContent = item.title || `Tela ${currentCarouselIndex + 1}`;
+    }
+
+    if (carouselThumbsRow) {
+      const thumbs = carouselThumbsRow.querySelectorAll('.carousel-thumb-btn');
+      thumbs.forEach((t, i) => {
+        t.classList.toggle('active', i === currentCarouselIndex);
+      });
+    }
+  }
+
+  if (carouselPrevBtn) {
+    carouselPrevBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      updateCarouselSlide(currentCarouselIndex - 1);
+    });
+  }
+
+  if (carouselNextBtn) {
+    carouselNextBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      updateCarouselSlide(currentCarouselIndex + 1);
+    });
+  }
 
   const fullscreenButtons = document.querySelectorAll('.botao-tela-cheia');
 
@@ -113,13 +167,65 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!modal || !modalImg) return;
     const imgSrc = btn.getAttribute('data-img');
     const title = btn.getAttribute('data-title') || 'Solução Sob Medida';
+    const badge = btn.getAttribute('data-badge') || 'Ficha Técnica & Arquitetura';
     const desc = btn.getAttribute('data-desc') || '';
     const highlights = (btn.getAttribute('data-highlights') || '').split('|').filter(Boolean);
     const tech = (btn.getAttribute('data-tech') || '').split(',').map(s => s.trim()).filter(Boolean);
+    const demoUrl = btn.getAttribute('data-demo-url') || '#';
+    const githubUrl = btn.getAttribute('data-github-url');
+    const rawImages = btn.getAttribute('data-images');
 
-    modalImg.src = imgSrc;
     if (modalTitle) modalTitle.textContent = title;
+    if (modalBadge) modalBadge.textContent = badge;
     if (modalDesc) modalDesc.textContent = desc;
+
+    const problem = btn.getAttribute('data-problem') || '';
+    const solution = btn.getAttribute('data-solution') || '';
+
+    if (modalProblemText) modalProblemText.textContent = problem;
+    if (modalSolutionText) modalSolutionText.textContent = solution;
+
+    // Configurar Carrossel de Imagens
+    if (rawImages) {
+      try {
+        currentCarouselImages = JSON.parse(rawImages);
+      } catch (err) {
+        currentCarouselImages = [{ src: imgSrc, title: title }];
+      }
+    } else {
+      currentCarouselImages = [{ src: imgSrc, title: title }];
+    }
+
+    if (currentCarouselImages.length > 1) {
+      if (carouselPrevBtn) carouselPrevBtn.style.display = 'flex';
+      if (carouselNextBtn) carouselNextBtn.style.display = 'flex';
+      if (carouselCaptionOverlay) carouselCaptionOverlay.style.display = 'block';
+      if (carouselThumbsRow) {
+        carouselThumbsRow.style.display = 'flex';
+        carouselThumbsRow.innerHTML = '';
+        currentCarouselImages.forEach((imgObj, idx) => {
+          const thumbBtn = document.createElement('button');
+          thumbBtn.type = 'button';
+          thumbBtn.className = `carousel-thumb-btn ${idx === 0 ? 'active' : ''}`;
+          thumbBtn.setAttribute('aria-label', `Ver tela ${idx + 1}`);
+          thumbBtn.innerHTML = `<img src="${imgObj.src}" alt="${imgObj.title || ''}">`;
+          thumbBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            updateCarouselSlide(idx);
+          });
+          carouselThumbsRow.appendChild(thumbBtn);
+        });
+      }
+      updateCarouselSlide(0);
+    } else {
+      // Imagem única
+      modalImg.src = imgSrc;
+      modalImg.style.opacity = '1';
+      if (carouselPrevBtn) carouselPrevBtn.style.display = 'none';
+      if (carouselNextBtn) carouselNextBtn.style.display = 'none';
+      if (carouselCaptionOverlay) carouselCaptionOverlay.style.display = 'none';
+      if (carouselThumbsRow) carouselThumbsRow.style.display = 'none';
+    }
 
     if (modalHighlights) {
       modalHighlights.innerHTML = '';
@@ -130,17 +236,42 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    if (modalTechTags) {
-      modalTechTags.innerHTML = '';
-      tech.forEach(t => {
-        const span = document.createElement('span');
-        span.textContent = t;
-        modalTechTags.appendChild(span);
-      });
+
+
+    // Botão de Demonstração (ocupa 3/10 da largura)
+    if (modalDemoBtn) {
+      if (demoUrl && demoUrl !== '#') {
+        modalDemoBtn.href = demoUrl;
+        modalDemoBtn.target = '_blank';
+        modalDemoBtn.innerHTML = `<span>Demo</span>`;
+      } else {
+        modalDemoBtn.href = 'javascript:void(0)';
+        modalDemoBtn.target = '_self';
+        modalDemoBtn.innerHTML = `<span>Demo</span>`;
+        modalDemoBtn.onclick = (e) => {
+          e.preventDefault();
+          modalDemoBtn.innerHTML = `<span>Preparando...</span>`;
+          setTimeout(() => { modalDemoBtn.innerHTML = `<span>Demo</span>`; }, 2000);
+        };
+      }
     }
 
+    // Botão Verde de WhatsApp com mensagem personalizada
     if (modalWhatsAppBtn) {
-      modalWhatsAppBtn.href = `https://wa.me/5521999677281?text=Ol%C3%A1%20Vitor!%20Vi%20o%20projeto%20"${encodeURIComponent(title)}"%20no%20seu%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20para%20algo%20similar.`;
+      modalWhatsAppBtn.href = `https://wa.me/5521999677281?text=Ol%C3%A1%20Vitor!%20Vi%20o%20projeto%20"${encodeURIComponent(title)}"%20no%20seu%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20para%20uma%20solu%C3%A7%C3%A3o%20similar.`;
+    }
+
+    // Link do GitHub
+    if (modalGithubLink) {
+      if (githubUrl) {
+        modalGithubLink.style.display = 'inline-flex';
+        modalGithubLink.href = githubUrl;
+        if (modalGithubText) {
+          modalGithubText.textContent = `Repositório Oficial: ${githubUrl.replace('https://', '')}`;
+        }
+      } else {
+        modalGithubLink.style.display = 'none';
+      }
     }
 
     modal.classList.add('open');
@@ -165,6 +296,10 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && modal?.classList.contains('open')) {
       closeModal();
+    }
+    if (modal?.classList.contains('open') && currentCarouselImages.length > 1) {
+      if (e.key === 'ArrowLeft') updateCarouselSlide(currentCarouselIndex - 1);
+      if (e.key === 'ArrowRight') updateCarouselSlide(currentCarouselIndex + 1);
     }
   });
 
@@ -205,13 +340,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const scenariosData = {
     geral: {
       fat: 'R$ 184.320',
-      fatDelta: '↑ 4,7% vs. mês ant.',
+      fatDelta: '↑ 4,7% vs. ant.',
       fatDeltaClass: 'up-good',
       desp: 'R$ 171.950',
-      despDelta: '↑ 5,5% vs. mês ant.',
+      despDelta: '↑ 5,5% vs. ant.',
       despDeltaClass: 'up-bad',
       lucro: '+R$ 12.370',
-      lucroDelta: '✓ Saldo positivo no mês',
+      lucroNum: 12370,
+      lucroDelta: '✓ Saldo positivo',
       lucroDeltaClass: 'up-good',
       margem: '6,7%',
       margemDelta: '↑ Margem preservada',
@@ -231,16 +367,17 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     otimizado: {
       fat: 'R$ 184.320',
-      fatDelta: 'Estável com margem alta',
+      fatDelta: 'Estável (+14% margem)',
       fatDeltaClass: 'up-good',
       desp: 'R$ 145.800',
-      despDelta: '↓ 15,2% economia real',
+      despDelta: '↓ 15,2% economia',
       despDeltaClass: 'up-good',
       lucro: '+R$ 38.520',
-      lucroDelta: '↑ Lucro triplicado no mês!',
+      lucroNum: 38520,
+      lucroDelta: '↑ Lucro triplicado',
       lucroDeltaClass: 'up-good',
       margem: '20,9%',
-      margemDelta: '↑ +14,2 p.p. recuperados',
+      margemDelta: '↑ +14,2 p.p. lucro',
       margemDeltaClass: 'up-good',
       bars: { b1: '85%', b2: '65%', b3: '22%', b4: '8%', b5: '12%', b4Val: '5,6k' },
       alertsBadge: '0 alertas críticos (Resolvido)',
@@ -257,16 +394,17 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     crescimento: {
       fat: 'R$ 230.400',
-      fatDelta: '↑ +25% novos clientes IA',
+      fatDelta: '↑ +25% receita IA',
       fatDeltaClass: 'up-good',
       desp: 'R$ 178.200',
-      despDelta: 'Custos estáveis (+3,6%)',
+      despDelta: 'Custos sob controle',
       despDeltaClass: 'up-good',
       lucro: '+R$ 52.200',
-      lucroDelta: '↑ Recorde histórico de lucro',
+      lucroNum: 52200,
+      lucroDelta: '↑ Recorde histórico',
       lucroDeltaClass: 'up-good',
       margem: '22,6%',
-      margemDelta: '↑ Alta eficiência de escala',
+      margemDelta: '↑ Eficiência 22,6%',
       margemDeltaClass: 'up-good',
       bars: { b1: '95%', b2: '72%', b3: '30%', b4: '10%', b5: '18%', b4Val: '6,2k' },
       alertsBadge: '1 alerta de capacidade',
@@ -286,6 +424,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const alertsCount = document.getElementById('alertsCount');
   const alertsItemsGrid = document.getElementById('alertsItemsGrid');
   const phoneNotifTitle = document.getElementById('phoneNotifTitle');
+  const labelCard4 = document.getElementById('labelCard4');
+  const forecastZone = document.getElementById('forecastZone');
+  const forecastLabel = document.getElementById('forecastLabel');
+  const ptRevFc = document.getElementById('ptRevFc');
+  const ptExpFc = document.getElementById('ptExpFc');
+  const axisFc1 = document.getElementById('axisFc1');
+  const axisFc2 = document.getElementById('axisFc2');
 
   function renderAlerts(alertsList, countText) {
     if (alertsCount) alertsCount.textContent = countText;
@@ -303,6 +448,105 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
         alertsItemsGrid.appendChild(div);
       });
+    }
+  }
+
+  function updateForecast(months, scenarioKey) {
+    const data = scenariosData[scenarioKey] || scenariosData.geral;
+    const m = Math.max(1, Math.min(6, parseInt(months, 10) || 3));
+    
+    if (simForecastVal) {
+      simForecastVal.textContent = `${m} ${m === 1 ? 'mês' : 'meses'}`;
+    }
+
+    const lucroBase = data.lucroNum || 12370;
+    const lucroAcumulado = lucroBase * m;
+    const formattedAcumulado = (lucroAcumulado >= 0 ? '+R$ ' : '-R$ ') + Math.abs(lucroAcumulado).toLocaleString('pt-BR');
+
+    // Atualiza Card 4 com a previsão ou margem
+    if (labelCard4) {
+      labelCard4.textContent = m === 1 ? 'Margem Operacional' : `Previsão (${m} meses)`;
+    }
+    if (valMargem) {
+      valMargem.textContent = m === 1 ? data.margem : formattedAcumulado;
+    }
+    if (deltaMargem) {
+      deltaMargem.textContent = m === 1 ? data.margemDelta : `↑ Margem média ${data.margem}`;
+      deltaMargem.className = `m-delta ${data.margemDeltaClass}`;
+    }
+
+    // Atualiza projeção visual no gráfico SVG
+    const xStart = 277;
+    const xEnd = Math.min(392, Math.round(xStart + ((m / 6) * 115)));
+    const zoneWidth = Math.max(38, xEnd - xStart + 8);
+
+    if (forecastZone) {
+      forecastZone.setAttribute('width', zoneWidth);
+    }
+    if (forecastLabel) {
+      forecastLabel.setAttribute('x', Math.round(xStart + (zoneWidth / 2)));
+      forecastLabel.textContent = `IA (${m}m)`;
+    }
+
+    let yRevEnd = 40;
+    let yExpEnd = 50;
+    let revPath = '';
+    let expPath = '';
+
+    if (scenarioKey === 'otimizado') {
+      yRevEnd = Math.round(52 - (m * 3.5));
+      yExpEnd = Math.round(71 + (m * 4.6));
+      const xMid = Math.round((xStart + xEnd) / 2);
+      const yRevMid = Math.round((52 + yRevEnd) / 2);
+      const yExpMid = Math.round((71 + yExpEnd) / 2);
+      revPath = `M277 52 Q ${xMid} ${yRevMid - 2}, ${xEnd} ${yRevEnd}`;
+      expPath = `M277 71 Q ${xMid} ${yExpMid + 2}, ${xEnd} ${yExpEnd}`;
+    } else if (scenarioKey === 'crescimento') {
+      yRevEnd = Math.round(52 - (m * 5.8));
+      yExpEnd = Math.round(71 - (m * 1.2));
+      const xMid = Math.round((xStart + xEnd) / 2);
+      const yRevMid = Math.round((52 + yRevEnd) / 2);
+      const yExpMid = Math.round((71 + yExpEnd) / 2);
+      revPath = `M277 52 Q ${xMid} ${yRevMid - 3}, ${xEnd} ${yRevEnd}`;
+      expPath = `M277 71 Q ${xMid} ${yExpMid}, ${xEnd} ${yExpEnd}`;
+    } else {
+      yRevEnd = Math.round(52 - (m * 2.0));
+      yExpEnd = Math.round(71 - (m * 2.8));
+      const xMid = Math.round((xStart + xEnd) / 2);
+      const yRevMid = Math.round((52 + yRevEnd) / 2);
+      const yExpMid = Math.round((71 + yExpEnd) / 2);
+      revPath = `M277 52 Q ${xMid} ${yRevMid}, ${xEnd} ${yRevEnd}`;
+      expPath = `M277 71 Q ${xMid} ${yExpMid}, ${xEnd} ${yExpEnd}`;
+    }
+
+    if (chartLineRevFc) chartLineRevFc.setAttribute('d', revPath);
+    if (chartLineExpFc) chartLineExpFc.setAttribute('d', expPath);
+
+    if (ptRevFc) {
+      ptRevFc.setAttribute('cx', xEnd);
+      ptRevFc.setAttribute('cy', yRevEnd);
+    }
+    if (ptExpFc) {
+      ptExpFc.setAttribute('cx', xEnd);
+      ptExpFc.setAttribute('cy', yExpEnd);
+    }
+
+    // Meses no eixo X
+    const axisLabels = ['Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
+    if (axisFc1) {
+      axisFc1.textContent = axisLabels[0];
+      axisFc1.setAttribute('x', Math.round(xStart + (zoneWidth * 0.35)));
+    }
+    if (axisFc2) {
+      axisFc2.textContent = axisLabels[Math.min(m - 1, 5)];
+      axisFc2.setAttribute('x', xEnd);
+    }
+
+    // Atualiza saldo do smartphone para refletir previsão quando relevante
+    if (phoneSaldo && m > 1) {
+      phoneSaldo.textContent = formattedAcumulado + ',00';
+    } else if (phoneSaldo) {
+      phoneSaldo.textContent = data.phoneSaldo;
     }
   }
 
@@ -326,21 +570,12 @@ document.addEventListener('DOMContentLoaded', () => {
       deltaLucro.textContent = data.lucroDelta;
       deltaLucro.className = `m-delta ${data.lucroDeltaClass}`;
     }
-    if (valMargem) {
-      valMargem.textContent = data.margem;
-      valMargem.className = 'm-value profit-positive';
-    }
-    if (deltaMargem) {
-      deltaMargem.textContent = data.margemDelta;
-      deltaMargem.className = `m-delta ${data.margemDeltaClass}`;
-    }
 
     if (alertBox) {
       alertBox.innerHTML = data.alertText;
       alertBox.className = `st-alert ${data.alertType}`;
     }
 
-    if (phoneSaldo) phoneSaldo.textContent = data.phoneSaldo;
     if (phoneNotifText) phoneNotifText.textContent = data.phoneNotif;
     if (phoneStatusTag) phoneStatusTag.textContent = data.phoneTag;
 
@@ -354,19 +589,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (bar5) bar5.style.setProperty('--w', data.bars.b5);
     if (valBar4) valBar4.textContent = data.bars.b4Val;
 
-    // Ajustar linhas de projeção do gráfico
-    if (chartLineRevFc && chartLineExpFc) {
-      if (key === 'otimizado') {
-        chartLineRevFc.setAttribute('d', 'M277 52 L329 42 L380 35');
-        chartLineExpFc.setAttribute('d', 'M277 71 L329 85 L380 98');
-      } else if (key === 'crescimento') {
-        chartLineRevFc.setAttribute('d', 'M277 52 L329 34 L380 20');
-        chartLineExpFc.setAttribute('d', 'M277 71 L329 68 L380 65');
-      } else {
-        chartLineRevFc.setAttribute('d', 'M277 52 L329 45 L380 40');
-        chartLineExpFc.setAttribute('d', 'M277 71 L329 60 L380 50');
-      }
-    }
+    // Atualiza a previsão com base no valor atual do slider
+    const currentMonths = simForecast ? simForecast.value : 3;
+    updateForecast(currentMonths, key);
   }
 
   if (simScenario) {
@@ -377,38 +602,50 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (simForecast) {
     simForecast.addEventListener('input', (e) => {
-      const val = e.target.value;
-      if (simForecastVal) simForecastVal.textContent = `${val} ${val === '1' ? 'mês' : 'meses'}`;
+      const currentScenario = simScenario ? simScenario.value : 'geral';
+      updateForecast(e.target.value, currentScenario);
     });
+  }
+
+  function triggerReportSendFeedback() {
+    if (btnDispararAlerta) {
+      btnDispararAlerta.textContent = '✓ Relatório Enviado no WhatsApp!';
+      btnDispararAlerta.style.background = '#00DC82';
+      btnDispararAlerta.style.color = '#05140C';
+    }
+    if (btnSimularResolvido) {
+      btnSimularResolvido.textContent = '✓ Relatório Enviado!';
+      btnSimularResolvido.style.background = '#00DC82';
+      btnSimularResolvido.style.color = '#05140C';
+    }
+    if (phoneNotifTitle) {
+      phoneNotifTitle.textContent = 'Relatório no WhatsApp Enviado';
+      phoneNotifTitle.style.color = '#00DC82';
+    }
+    if (phoneNotifText) {
+      phoneNotifText.textContent = 'Fechamento de caixa, fluxo e projeção entregues no WhatsApp da diretoria.';
+    }
+
+    setTimeout(() => {
+      if (btnDispararAlerta) {
+        btnDispararAlerta.textContent = '⚡ Enviar relatório para WhatsApp';
+        btnDispararAlerta.style.background = '';
+        btnDispararAlerta.style.color = '';
+      }
+      if (btnSimularResolvido) {
+        btnSimularResolvido.textContent = '⚡ Enviar relatório para WhatsApp';
+        btnSimularResolvido.style.background = '';
+        btnSimularResolvido.style.color = '';
+      }
+    }, 3500);
   }
 
   if (btnDispararAlerta) {
-    btnDispararAlerta.addEventListener('click', () => {
-      btnDispararAlerta.textContent = '✓ Relatório Enviado no Celular!';
-      btnDispararAlerta.style.background = '#10b981';
-      btnDispararAlerta.style.color = '#fff';
-      if (phoneNotifText) {
-        phoneNotifText.textContent = 'Mensagem de teste: Fechamento enviado com sucesso via WhatsApp!';
-      }
-      setTimeout(() => {
-        btnDispararAlerta.textContent = '⚡ Testar envio no WhatsApp';
-        btnDispararAlerta.style.background = '';
-        btnDispararAlerta.style.color = '';
-      }, 3500);
-    });
+    btnDispararAlerta.addEventListener('click', triggerReportSendFeedback);
   }
 
   if (btnSimularResolvido) {
-    btnSimularResolvido.addEventListener('click', () => {
-      if (simScenario) {
-        simScenario.value = 'otimizado';
-        updateScenario('otimizado');
-      }
-      btnSimularResolvido.textContent = '🎉 Desperdícios Eliminados!';
-      setTimeout(() => {
-        btnSimularResolvido.textContent = '✨ Simular Otimização Agora';
-      }, 2500);
-    });
+    btnSimularResolvido.addEventListener('click', triggerReportSendFeedback);
   }
 
 
